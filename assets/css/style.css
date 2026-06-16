@@ -262,7 +262,7 @@ body {
 .temo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .temo-card { background: white; border: 1px solid var(--border); padding: 32px; }
 .temo-card__stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
-.temo-card__text { font-size: 13px; color: #666; line-height: 1.9; font-style: italic; margin-bottom: 18px; }
+.temo-card__text { font-size: 13px; color: var(--text-muted); line-height: 1.9; font-style: italic; margin-bottom: 18px; }
 .temo-card__name { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
 
 /* ============================
