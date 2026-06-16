@@ -47,49 +47,6 @@
   <div class="formations-grid" id="formations-visage"></div>
 </section>
 
-<section class="section">
-  <div class="section__header">
-    <span class="label">Inscription</span>
-    <h2 class="heading">Rejoindre une formation</h2>
-    <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">Contactez-nous pour vous inscrire ou obtenir plus d'informations</p>
-  </div>
-  <form class="form" name="inscription-formation" method="POST" netlify netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="inscription-formation">
-    <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
-    <div class="form__group">
-      <label class="form__label" for="f-nom">Nom complet</label>
-      <input class="form__input" type="text" id="f-nom" name="nom" required placeholder="Votre nom et prénom">
-    </div>
-    <div class="form__group">
-      <label class="form__label" for="f-email">Email</label>
-      <input class="form__input" type="email" id="f-email" name="email" required placeholder="votre@email.com">
-    </div>
-    <div class="form__group">
-      <label class="form__label" for="f-formation">Formation souhaitée</label>
-      <select class="form__select" id="f-formation" name="formation" required>
-        <option value="" disabled selected>Choisir une formation</option>
-        <optgroup label="Corps">
-          <option>Formation Body Care — 890 €</option>
-          <option>Formation Drainage Lymphatique Corps — 500 €</option>
-          <option>Formation Remodelage — 500 €</option>
-          <option>Formation Madérothérapie — 500 €</option>
-        </optgroup>
-        <optgroup label="Visage">
-          <option>Formation Face Care — 600 €</option>
-          <option>Formation Drainage Lymphatique Visage — 250 €</option>
-          <option>Formation Remodelage Visage — 250 €</option>
-          <option>Formation Outils &amp; Techniques Complémentaires Visage — 250 €</option>
-        </optgroup>
-      </select>
-    </div>
-    <div class="form__group">
-      <label class="form__label" for="f-message">Message (optionnel)</label>
-      <textarea class="form__textarea" id="f-message" name="message" placeholder="Questions, disponibilités…"></textarea>
-    </div>
-    <button type="submit" class="btn btn--dark">Envoyer ma demande</button>
-  </form>
-</section>
-
 <section class="section section--beige">
   <div class="section__header">
     <span class="label">Nos sessions</span>
@@ -134,6 +91,49 @@
       <div class="video-temo__label">Ajouter une vidéo témoignage</div>
     </div>
   </div>
+</section>
+
+<section class="section">
+  <div class="section__header">
+    <span class="label">Inscription</span>
+    <h2 class="heading">Rejoindre une formation</h2>
+    <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">Contactez-nous pour vous inscrire ou obtenir plus d'informations</p>
+  </div>
+  <form class="form" name="inscription-formation" method="POST" netlify netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="inscription-formation">
+    <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+    <div class="form__group">
+      <label class="form__label" for="f-nom">Nom complet</label>
+      <input class="form__input" type="text" id="f-nom" name="nom" required placeholder="Votre nom et prénom">
+    </div>
+    <div class="form__group">
+      <label class="form__label" for="f-email">Email</label>
+      <input class="form__input" type="email" id="f-email" name="email" required placeholder="votre@email.com">
+    </div>
+    <div class="form__group">
+      <label class="form__label" for="f-formation">Formation souhaitée</label>
+      <select class="form__select" id="f-formation" name="formation" required>
+        <option value="" disabled selected>Choisir une formation</option>
+        <optgroup label="Corps">
+          <option>Formation Body Care — 890 €</option>
+          <option>Formation Drainage Lymphatique Corps — 500 €</option>
+          <option>Formation Remodelage — 500 €</option>
+          <option>Formation Madérothérapie — 500 €</option>
+        </optgroup>
+        <optgroup label="Visage">
+          <option>Formation Face Care — 600 €</option>
+          <option>Formation Drainage Lymphatique Visage — 250 €</option>
+          <option>Formation Remodelage Visage — 250 €</option>
+          <option>Formation Outils &amp; Techniques Complémentaires Visage — 250 €</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="form__group">
+      <label class="form__label" for="f-message">Message (optionnel)</label>
+      <textarea class="form__textarea" id="f-message" name="message" placeholder="Questions, disponibilités…"></textarea>
+    </div>
+    <button type="submit" class="btn btn--dark">Envoyer ma demande</button>
+  </form>
 </section>
 
 <footer class="footer">
