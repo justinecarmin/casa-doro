@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carte des soins Casa d'Oro — Drainage lymphatique, remodelage, madothérapie, face care, reiki, bains sonores à Ajaccio.">
+  <title>Carte des Soins — Casa d'Oro by Justine</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__logo">Casa d'Oro</a>
+  <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav__links">
+    <li><a href="soins.html">Soins</a></li>
+    <li><a href="formations.html">Formations</a></li>
+    <li><a href="a-propos.html">À Propos</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="TREATWELL_URL" target="_blank" rel="noopener" class="nav__cta">Réserver</a></li>
+  </ul>
+</nav>
+
+<section class="hero hero--inner">
+  <div class="hero__content">
+    <span class="hero__pre label">Casa d'Oro · Ajaccio</span>
+    <h1 class="hero__title heading">Carte des Soins</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="soins-section">
+    <h2 class="soins-section__title">Soins Corps et Visage Drainant</h2>
+    <table class="soins-table" id="table-corps-visage"></table>
+  </div>
+  <div class="soins-section">
+    <h2 class="soins-section__title">Reiki</h2>
+    <table class="soins-table" id="table-reiki"></table>
+  </div>
+  <div class="soins-section">
+    <h2 class="soins-section__title">Bains Sonores</h2>
+    <table class="soins-table" id="table-bains-sonores"></table>
+  </div>
+  <div style="text-align:center; margin-top:48px;">
+    <a href="TREATWELL_URL" target="_blank" rel="noopener" class="btn btn--dark">Réserver sur Treatwell</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__logo">Casa d'Oro</div>
+  <div class="footer__info">
+    Ajaccio, Corse<br>
+    @casa_doro_ajaccio<br>
+    contact@casadoro.fr
+  </div>
+  <div class="footer__links">
+    <a href="https://www.instagram.com/casa_doro_ajaccio" target="_blank" rel="noopener">Instagram</a>
+    <a href="TREATWELL_URL" target="_blank" rel="noopener">Treatwell</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer__copy">© 2026 Casa d'Oro by Justine · Ajaccio</div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/data.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const data = await loadServices();
+    if (!data) return;
+    renderServiceTable(data.corps_visage, '#table-corps-visage');
+    renderServiceTable(data.reiki,        '#table-reiki');
+    renderServiceTable(data.bains_sonores,'#table-bains-sonores');
+  });
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>
