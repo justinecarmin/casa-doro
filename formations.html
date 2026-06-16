@@ -90,6 +90,52 @@
   </form>
 </section>
 
+<section class="section section--beige">
+  <div class="section__header">
+    <span class="label">Nos sessions</span>
+    <h2 class="heading">Dernières formations</h2>
+    <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">Un aperçu de nos sessions en présentiel</p>
+  </div>
+
+  <div class="carousel-wrap">
+    <div class="carousel" id="sessions-carousel">
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="session-photo-1">Photo session</div>
+        <div class="carousel__caption">Session Body Care</div>
+      </div>
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="session-photo-2">Photo session</div>
+        <div class="carousel__caption">Session Face Care</div>
+      </div>
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="session-photo-3">Photo session</div>
+        <div class="carousel__caption">Session Drainage</div>
+      </div>
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="session-photo-4">Photo session</div>
+        <div class="carousel__caption">Session Remodelage</div>
+      </div>
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="session-photo-5">Photo session</div>
+        <div class="carousel__caption">Session Madérothérapie</div>
+      </div>
+    </div>
+    <div class="carousel__nav">
+      <button class="carousel__btn" id="prev-btn">&#8249;</button>
+      <button class="carousel__btn" id="next-btn">&#8250;</button>
+    </div>
+  </div>
+
+  <div class="video-temo">
+    <span class="label">Témoignage</span>
+    <h3 class="heading" style="margin-top:8px;">Elles parlent de leur formation</h3>
+    <div class="video-temo__placeholder" id="video-placeholder">
+      <div class="video-temo__icon">▶</div>
+      <div class="video-temo__label">Ajouter une vidéo témoignage</div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer__logo">Casa d'Oro</div>
   <div class="footer__info">
@@ -113,6 +159,14 @@
     if (!data) return;
     renderFormationCards(data.corps,  '#formations-corps');
     renderFormationCards(data.visage, '#formations-visage');
+
+    const carousel = document.getElementById('sessions-carousel');
+    document.getElementById('prev-btn').addEventListener('click', () => {
+      carousel.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    document.getElementById('next-btn').addEventListener('click', () => {
+      carousel.scrollBy({ left: 300, behavior: 'smooth' });
+    });
   });
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
