@@ -555,11 +555,13 @@ body {
   text-transform: uppercase;
   color: var(--gold);
 }
-.video-temo iframe {
+.video-temo iframe,
+.video-temo__player {
   width: 100%;
   max-width: 640px;
   height: 360px;
   display: block;
   margin: 32px auto 0;
   border: none;
+  background: var(--dark-bg);
 }
