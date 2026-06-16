@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formations professionnelles Casa d'Oro — Body Care, Face Care, Drainage, Remodelage, Madérothérapie. Certifiées, résultats dès la 1ère séance.">
+  <title>Formations — Casa d'Oro by Justine</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__logo">Casa d'Oro</a>
+  <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav__links">
+    <li><a href="soins.html">Soins</a></li>
+    <li><a href="formations.html">Formations</a></li>
+    <li><a href="a-propos.html">À Propos</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="TREATWELL_URL" target="_blank" rel="noopener" class="nav__cta">Réserver</a></li>
+  </ul>
+</nav>
+
+<section class="hero hero--inner">
+  <div class="hero__content">
+    <span class="hero__pre label">Pour les professionnelles</span>
+    <h1 class="hero__title heading">Carte des Formations</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__header">
+    <span class="label">Corps</span>
+    <h2 class="heading">Formations Corps</h2>
+  </div>
+  <div class="formations-grid" id="formations-corps"></div>
+</section>
+
+<section class="section section--beige">
+  <div class="section__header">
+    <span class="label">Visage</span>
+    <h2 class="heading">Formations Visage</h2>
+  </div>
+  <div class="formations-grid" id="formations-visage"></div>
+</section>
+
+<section class="section">
+  <div class="section__header">
+    <span class="label">Inscription</span>
+    <h2 class="heading">Rejoindre une formation</h2>
+    <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">Contactez-nous pour vous inscrire ou obtenir plus d'informations</p>
+  </div>
+  <form class="form" name="inscription-formation" method="POST" netlify netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="inscription-formation">
+    <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+    <div class="form__group">
+      <label class="form__label" for="f-nom">Nom complet</label>
+      <input class="form__input" type="text" id="f-nom" name="nom" required placeholder="Votre nom et prénom">
+    </div>
+    <div class="form__group">
+      <label class="form__label" for="f-email">Email</label>
+      <input class="form__input" type="email" id="f-email" name="email" required placeholder="votre@email.com">
+    </div>
+    <div class="form__group">
+      <label class="form__label" for="f-formation">Formation souhaitée</label>
+      <select class="form__select" id="f-formation" name="formation" required>
+        <option value="" disabled selected>Choisir une formation</option>
+        <optgroup label="Corps">
+          <option>Formation Body Care — 890 €</option>
+          <option>Formation Drainage Lymphatique Corps — 500 €</option>
+          <option>Formation Remodelage — 500 €</option>
+          <option>Formation Madérothérapie — 500 €</option>
+        </optgroup>
+        <optgroup label="Visage">
+          <option>Formation Face Care — 600 €</option>
+          <option>Formation Drainage Lymphatique Visage — 250 €</option>
+          <option>Formation Remodelage Visage — 250 €</option>
+          <option>Formation Outils &amp; Techniques Complémentaires Visage — 250 €</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="form__group">
+      <label class="form__label" for="f-message">Message (optionnel)</label>
+      <textarea class="form__textarea" id="f-message" name="message" placeholder="Questions, disponibilités…"></textarea>
+    </div>
+    <button type="submit" class="btn btn--dark">Envoyer ma demande</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="footer__logo">Casa d'Oro</div>
+  <div class="footer__info">
+    Ajaccio, Corse<br>
+    @casa_doro_ajaccio<br>
+    contact@casadoro.fr
+  </div>
+  <div class="footer__links">
+    <a href="https://www.instagram.com/casa_doro_ajaccio" target="_blank" rel="noopener">Instagram</a>
+    <a href="TREATWELL_URL" target="_blank" rel="noopener">Treatwell</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer__copy">© 2026 Casa d'Oro by Justine · Ajaccio</div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/data.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const data = await loadFormations();
+    if (!data) return;
+    renderFormationCards(data.corps,  '#formations-corps');
+    renderFormationCards(data.visage, '#formations-visage');
+  });
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>
