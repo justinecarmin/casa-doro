@@ -1,0 +1,96 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "services"
+    label: "Soins"
+    files:
+      - name: "services"
+        label: "Tous les soins"
+        file: "_data/services.json"
+        fields:
+          - label: "Soins Corps et Visage"
+            name: "corps_visage"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Durée", name: "duree", widget: "string" }
+              - { label: "Prix (€)", name: "prix", widget: "number" }
+              - { label: "Forfait", name: "forfait", widget: "boolean", default: false }
+          - label: "Reiki"
+            name: "reiki"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Durée", name: "duree", widget: "string" }
+              - { label: "Prix (€)", name: "prix", widget: "number" }
+              - { label: "Forfait", name: "forfait", widget: "boolean", default: false }
+          - label: "Bains Sonores"
+            name: "bains_sonores"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Durée", name: "duree", widget: "string" }
+              - { label: "Prix (€)", name: "prix", widget: "number" }
+              - { label: "Forfait", name: "forfait", widget: "boolean", default: false }
+
+  - name: "formations"
+    label: "Formations"
+    files:
+      - name: "formations"
+        label: "Toutes les formations"
+        file: "_data/formations.json"
+        fields:
+          - label: "Formations Corps"
+            name: "corps"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Note / inclus", name: "note", widget: "string", required: false }
+              - { label: "Durée", name: "duree", widget: "string" }
+              - { label: "Prix (€)", name: "prix", widget: "number" }
+              - { label: "Formation complète (encadré or)", name: "featured", widget: "boolean", default: false }
+          - label: "Formations Visage"
+            name: "visage"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Note / inclus", name: "note", widget: "string", required: false }
+              - { label: "Durée", name: "duree", widget: "string" }
+              - { label: "Prix (€)", name: "prix", widget: "number" }
+              - { label: "Formation complète (encadré or)", name: "featured", widget: "boolean", default: false }
+
+  - name: "temoignages"
+    label: "Témoignages"
+    files:
+      - name: "temoignages"
+        label: "Témoignages clients"
+        file: "_data/temoignages.json"
+        fields:
+          - label: "Témoignages"
+            name: "temoignages"
+            widget: "list"
+            fields:
+              - { label: "Prénom client", name: "nom", widget: "string" }
+              - { label: "Note (1 à 5)", name: "note", widget: "number", min: 1, max: 5 }
+              - { label: "Texte de l'avis", name: "texte", widget: "text" }
+              - { label: "Afficher sur le site", name: "visible", widget: "boolean", default: false }
+
+  - name: "a_propos"
+    label: "À Propos"
+    files:
+      - name: "a_propos"
+        label: "Page À Propos"
+        file: "_data/a-propos.json"
+        fields:
+          - { label: "Bio (paragraphe 1)", name: "bio1", widget: "text" }
+          - { label: "Bio (paragraphe 2)", name: "bio2", widget: "text" }
+          - { label: "Photo de Justine", name: "photo_justine", widget: "image", required: false }
+          - { label: "Photo de l'espace", name: "photo_espace", widget: "image", required: false }
+          - { label: "Photo de la salle de formation", name: "photo_formation", widget: "image", required: false }
