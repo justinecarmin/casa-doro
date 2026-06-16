@@ -1,0 +1,70 @@
+{
+  "corps": [
+    {
+      "nom": "Formation Body Care",
+      "description": "Une formation complète d'une journée comprenant l'apprentissage du drainage lymphatique, du remodelage et de la madérothérapie sur le corps. Synergie de 5 techniques : drainage, remodelage, madérothérapie, brossage à sec et cryothérapie légère.",
+      "note": "Inclus 3 techniques / protocole complet pour des résultats visibles dès la 1ère séance.",
+      "duree": "Journée complète",
+      "prix": 890,
+      "featured": true
+    },
+    {
+      "nom": "Formation Drainage Lymphatique Corps",
+      "description": "Une formation complète d'une journée où tu apprends la méthodologie du drainage lymphatique sur le corps.",
+      "note": "",
+      "duree": "Journée complète",
+      "prix": 500,
+      "featured": false
+    },
+    {
+      "nom": "Formation Remodelage",
+      "description": "Une formation complète d'une journée où tu apprends la méthodologie du remodelage.",
+      "note": "",
+      "duree": "Journée complète",
+      "prix": 500,
+      "featured": false
+    },
+    {
+      "nom": "Formation Madérothérapie",
+      "description": "Une formation complète d'une journée où tu apprends la méthodologie de la madérothérapie.",
+      "note": "",
+      "duree": "Journée complète",
+      "prix": 500,
+      "featured": false
+    }
+  ],
+  "visage": [
+    {
+      "nom": "Formation Face Care",
+      "description": "Une formation complète d'une journée comprenant l'apprentissage du drainage lymphatique, du remodelage et de la lithothérapie sur le visage. La méthode est une synergie combinant le drainage, le remodelage, la lithothérapie et la cryothérapie légère sur le visage.",
+      "note": "Inclus 3 techniques / protocole complet pour des résultats visibles dès la 1ère séance.",
+      "duree": "Journée complète",
+      "prix": 600,
+      "featured": true
+    },
+    {
+      "nom": "Formation Drainage Lymphatique Visage",
+      "description": "Une formation complète d'une demi-journée où tu apprends la méthodologie du drainage lymphatique sur le visage.",
+      "note": "",
+      "duree": "Demi-journée",
+      "prix": 250,
+      "featured": false
+    },
+    {
+      "nom": "Formation Remodelage Visage",
+      "description": "Une formation complète d'une demi-journée où tu apprends la méthodologie du remodelage sur le visage.",
+      "note": "",
+      "duree": "Demi-journée",
+      "prix": 250,
+      "featured": false
+    },
+    {
+      "nom": "Formation Outils & Techniques Complémentaires Visage",
+      "description": "Une formation complète d'une demi-journée où tu apprends la méthodologie de la madérothérapie, lithothérapie et tous les outils du moment. Comment les utiliser sur le visage.",
+      "note": "",
+      "duree": "Demi-journée",
+      "prix": 250,
+      "featured": false
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "temoignages": [
+    {
+      "nom": "Sophie M.",
+      "note": 5,
+      "texte": "Résultats incroyables dès la première séance. Justine est professionnelle et à l'écoute. Je recommande vivement !",
+      "visible": true
+    },
+    {
+      "nom": "Léa P.",
+      "note": 5,
+      "texte": "Formation Body Care au top. Des techniques que j'applique immédiatement avec mes clientes. Merci Justine !",
+      "visible": true
+    },
+    {
+      "nom": "Marie-Christine B.",
+      "note": 5,
+      "texte": "Un cadre magnifique, une praticienne talentueuse. Le drainage lymphatique a vraiment changé ma silhouette.",
+      "visible": true
+    }
+  ]
+}
