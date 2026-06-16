@@ -317,7 +317,7 @@ body {
 .form__textarea:focus,
 .form__select:focus { border-color: var(--gold); }
 .form__textarea { resize: vertical; min-height: 140px; }
-.form__stars { display: flex; gap: 8px; }
+.form__stars { display: flex; gap: 8px; flex-direction: row-reverse; }
 .form__stars input[type="radio"] { display: none; }
 .form__stars label { font-size: 24px; color: var(--border); cursor: pointer; transition: color 0.1s; }
 .form__stars input[type="radio"]:checked ~ label,

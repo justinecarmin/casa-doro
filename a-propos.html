@@ -35,16 +35,16 @@
   <div class="about-grid">
     <div>
       <div class="polaro" style="transform: rotate(-1.5deg); width: 100%; max-width: 380px; margin: 0 auto;">
-        <div class="polaro__placeholder" style="height: 480px;">Photo Justine</div>
+        <div id="photo-justine" class="polaro__placeholder" style="height: 480px;">Photo Justine</div>
       </div>
     </div>
     <div>
       <span class="label" style="display:block; margin-bottom:16px;">Fondatrice</span>
       <h2 class="heading" style="font-size:38px; margin-bottom:24px;">Justine</h2>
-      <p style="font-size:14px; line-height:2; color:var(--text-muted); margin-bottom:20px;">
+      <p id="bio1" style="font-size:14px; line-height:2; color:var(--text-muted); margin-bottom:20px;">
         Texte de présentation de Justine à compléter — parcours, formation initiale, passion pour les soins drainants et le bien-être.
       </p>
-      <p style="font-size:14px; line-height:2; color:var(--text-muted); margin-bottom:32px;">
+      <p id="bio2" style="font-size:14px; line-height:2; color:var(--text-muted); margin-bottom:32px;">
         Certifications, méthodes utilisées (Renata França, Olfa Perbal Paris), philosophie de soin.
       </p>
       <div class="about__valeurs">
@@ -109,6 +109,9 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/data.js"></script>
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    loadAPropos();
+  });
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
       if (!user) {
