@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="À propos de Justine — fondatrice de Casa d'Oro, spécialiste en soins drainants et formatrice à Ajaccio.">
+  <title>À Propos — Casa d'Oro by Justine</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__logo">Casa d'Oro</a>
+  <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav__links">
+    <li><a href="soins.html">Soins</a></li>
+    <li><a href="formations.html">Formations</a></li>
+    <li><a href="a-propos.html">À Propos</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="TREATWELL_URL" target="_blank" rel="noopener" class="nav__cta">Réserver</a></li>
+  </ul>
+</nav>
+
+<section class="hero hero--inner">
+  <div class="hero__content">
+    <span class="hero__pre label">L'histoire</span>
+    <h1 class="hero__title heading">Casa d'Oro by Justine</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="about-grid">
+    <div>
+      <div class="polaro" style="transform: rotate(-1.5deg); width: 100%; max-width: 380px; margin: 0 auto;">
+        <div class="polaro__placeholder" style="height: 480px;">Photo Justine</div>
+      </div>
+    </div>
+    <div>
+      <span class="label" style="display:block; margin-bottom:16px;">Fondatrice</span>
+      <h2 class="heading" style="font-size:38px; margin-bottom:24px;">Justine</h2>
+      <p style="font-size:14px; line-height:2; color:var(--text-muted); margin-bottom:20px;">
+        Texte de présentation de Justine à compléter — parcours, formation initiale, passion pour les soins drainants et le bien-être.
+      </p>
+      <p style="font-size:14px; line-height:2; color:var(--text-muted); margin-bottom:32px;">
+        Certifications, méthodes utilisées (Renata França, Olfa Perbal Paris), philosophie de soin.
+      </p>
+      <div class="about__valeurs">
+        <div class="valeur">
+          <span class="valeur__icon">✦</span>
+          <div class="valeur__text">
+            <h4>Expertise</h4>
+            <p>Formée aux meilleures méthodes internationales de drainage et remodelage.</p>
+          </div>
+        </div>
+        <div class="valeur">
+          <span class="valeur__icon">✦</span>
+          <div class="valeur__text">
+            <h4>Résultats</h4>
+            <p>Des résultats visibles dès la première séance, durables sur le long terme.</p>
+          </div>
+        </div>
+        <div class="valeur">
+          <span class="valeur__icon">✦</span>
+          <div class="valeur__text">
+            <h4>Bienveillance</h4>
+            <p>Un accompagnement personnalisé, à l'écoute de chaque cliente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--beige">
+  <div class="section__header">
+    <span class="label">L'espace</span>
+    <h2 class="heading">L'Institut</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:800px; margin:0 auto;">
+    <div class="polaro" style="transform:rotate(-1deg); width:100%;">
+      <div class="polaro__placeholder" style="height:260px;">Photo espace</div>
+      <p class="polaro__label">La salle de soin</p>
+    </div>
+    <div class="polaro" style="transform:rotate(1.5deg); width:100%; margin-top:24px;">
+      <div class="polaro__placeholder" style="height:260px;">Photo formation</div>
+      <p class="polaro__label">La salle de formation</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__logo">Casa d'Oro</div>
+  <div class="footer__info">
+    Ajaccio, Corse<br>
+    @casa_doro_ajaccio<br>
+    contact@casadoro.fr
+  </div>
+  <div class="footer__links">
+    <a href="https://www.instagram.com/casa_doro_ajaccio" target="_blank" rel="noopener">Instagram</a>
+    <a href="TREATWELL_URL" target="_blank" rel="noopener">Treatwell</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer__copy">© 2026 Casa d'Oro by Justine · Ajaccio</div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/data.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>
