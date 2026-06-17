@@ -331,8 +331,10 @@ body {
 }
 .prochaine-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
+  text-align: center;
+  gap: 14px;
   padding: 32px 36px;
   border: 1px solid var(--border);
   background: var(--cream);
