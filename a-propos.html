@@ -75,6 +75,37 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="section__header">
+    <span class="label">Certifications</span>
+    <h2 class="heading">Diplômes & Formations</h2>
+  </div>
+  <div class="carousel-wrap">
+    <div class="carousel" id="diplomes-carousel">
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="diplome-1">Diplôme</div>
+        <div class="carousel__caption">Renata França — Drainage Lymphatique</div>
+      </div>
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="diplome-2">Diplôme</div>
+        <div class="carousel__caption">Renata França — Remodelage Corps</div>
+      </div>
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="diplome-3">Diplôme</div>
+        <div class="carousel__caption">Renata França — Miracle Face</div>
+      </div>
+      <div class="carousel__slide">
+        <div class="carousel__placeholder" id="diplome-4">Diplôme</div>
+        <div class="carousel__caption">Olfa Perbal Paris — Madothérapie</div>
+      </div>
+    </div>
+    <div class="carousel__nav">
+      <button class="carousel__btn" id="diplomes-prev">&#8249;</button>
+      <button class="carousel__btn" id="diplomes-next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
 <section class="section section--beige">
   <div class="section__header">
     <span class="label">L'espace</span>
@@ -112,6 +143,13 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     loadAPropos();
+    const carousel = document.getElementById('diplomes-carousel');
+    document.getElementById('diplomes-prev').addEventListener('click', () => {
+      carousel.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    document.getElementById('diplomes-next').addEventListener('click', () => {
+      carousel.scrollBy({ left: 300, behavior: 'smooth' });
+    });
   });
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
