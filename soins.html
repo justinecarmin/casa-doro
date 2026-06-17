@@ -51,6 +51,34 @@
   </div>
 </section>
 
+<section class="section section--beige">
+  <div class="section__header">
+    <span class="label">Résultats</span>
+    <h2 class="heading">Avant / Après</h2>
+    <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">Des résultats visibles dès la première séance</p>
+  </div>
+  <div class="carousel-wrap">
+    <div class="carousel" id="avant-apres-carousel">
+      <div class="carousel__slide">
+        <img src="assets/images/avant-apres/IMG_0535.jpg" alt="Avant Après Body Care" style="width:100%; height:320px; object-fit:cover; display:block;">
+        <div class="carousel__caption">Body Care</div>
+      </div>
+      <div class="carousel__slide">
+        <img src="assets/images/avant-apres/IMG_3931.jpg" alt="Avant Après Face Care" style="width:100%; height:320px; object-fit:cover; display:block;">
+        <div class="carousel__caption">Face Care</div>
+      </div>
+      <div class="carousel__slide">
+        <img src="assets/images/avant-apres/avant-apres-silhouette.jpg" alt="Avant Après Silhouette" style="width:100%; height:320px; object-fit:cover; display:block;">
+        <div class="carousel__caption">Silhouette</div>
+      </div>
+    </div>
+    <div class="carousel__nav">
+      <button class="carousel__btn" id="aa-prev">&#8249;</button>
+      <button class="carousel__btn" id="aa-next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer__logo">Casa d'Oro</div>
   <div class="footer__info">
@@ -75,6 +103,14 @@
     renderServiceTable(data.corps_visage, '#table-corps-visage');
     renderServiceTable(data.reiki,        '#table-reiki');
     renderServiceTable(data.bains_sonores,'#table-bains-sonores');
+
+    const carousel = document.getElementById('avant-apres-carousel');
+    document.getElementById('aa-prev').addEventListener('click', () => {
+      carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
+    });
+    document.getElementById('aa-next').addEventListener('click', () => {
+      carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
+    });
   });
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
