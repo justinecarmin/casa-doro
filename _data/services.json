@@ -18,7 +18,7 @@
     { "nom": "Forfait 4 séances", "duree": "", "prix": 280, "forfait": true }
   ],
   "bains_sonores": [
-    { "nom": "Soin individuel", "duree": "1h", "prix": 80, "forfait": false },
-    { "nom": "Soin collectif sur demande", "duree": "1h", "prix": 20, "forfait": false }
+    { "nom": "Soin individuel", "duree": "1h", "prix": 80, "forfait": false, "description": "Immersion sonore personnalisée par bols tibétains et cristal. Les vibrations agissent en profondeur pour libérer les tensions, harmoniser le corps et l'esprit et induire un état méditatif naturel." },
+    { "nom": "Soin collectif sur demande", "duree": "1h", "prix": 20, "forfait": false, "description": "Expérience de bains sonores en groupe, sur demande. Un moment de reconnexion collective porté par les vibrations des bols tibétains et cristal, idéal pour les entreprises, associations ou cercles de bien-être." }
   ]
 }
