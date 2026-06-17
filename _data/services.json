@@ -15,7 +15,7 @@
   ],
   "reiki": [
     { "nom": "Reiki Usui Tibétain", "duree": "1h", "prix": 80, "forfait": false, "description": "Soin énergétique ancestral par imposition des mains. Le Reiki Usui Tibétain rééquilibre les flux d'énergie vitale, apaise le système nerveux et favorise un profond état de relaxation et de bien-être." },
-    { "nom": "Forfait 4 séances", "duree": "", "prix": 280, "forfait": true }
+    { "nom": "Forfait 4 séances", "duree": "", "prix": 280, "forfait": true, "description": "Apporte un travail plus profond." }
   ],
   "bains_sonores": [
     { "nom": "Soin individuel", "duree": "1h", "prix": 80, "forfait": false, "description": "Immersion sonore personnalisée par bols tibétains et cristal. Les vibrations agissent en profondeur pour libérer les tensions, harmoniser le corps et l'esprit et induire un état méditatif naturel." },
