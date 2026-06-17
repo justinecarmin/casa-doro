@@ -98,9 +98,10 @@
     <h2 class="heading">Rejoindre une formation</h2>
     <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">Contactez-nous pour vous inscrire ou obtenir plus d'informations</p>
   </div>
-  <form class="form" name="inscription-formation" method="POST" action="merci.html" netlify netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="inscription-formation">
-    <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+  <form class="form" data-w3f method="POST">
+    <input type="hidden" name="access_key" value="64b110c1-28ef-4db8-a60c-2ea199508251">
+    <input type="hidden" name="subject" value="Demande d'inscription formation — Casa d'Oro">
+    <input type="checkbox" name="botcheck" style="display:none;">
     <div class="form__group">
       <label class="form__label" for="f-nom">Nom complet</label>
       <input class="form__input" type="text" id="f-nom" name="nom" required placeholder="Votre nom et prénom">

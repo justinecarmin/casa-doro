@@ -58,9 +58,10 @@
   <div class="contact-grid">
     <div>
       <span class="label" style="display:block; margin-bottom:24px;">Formulaire de contact</span>
-      <form class="form" name="contact" method="POST" action="merci.html" netlify netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
-        <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+      <form class="form" data-w3f method="POST">
+        <input type="hidden" name="access_key" value="64b110c1-28ef-4db8-a60c-2ea199508251">
+        <input type="hidden" name="subject" value="Nouveau message — Casa d'Oro">
+        <input type="checkbox" name="botcheck" style="display:none;">
         <div class="form__group">
           <label class="form__label" for="c-nom">Nom</label>
           <input class="form__input" type="text" id="c-nom" name="nom" required placeholder="Votre nom">
@@ -102,9 +103,10 @@
     <h2 class="heading">Laisser un avis</h2>
     <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">Votre avis compte — il aide d'autres personnes à trouver Casa d'Oro</p>
   </div>
-  <form class="form" name="avis" method="POST" action="merci.html" netlify netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="avis">
-    <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+  <form class="form" data-w3f method="POST">
+    <input type="hidden" name="access_key" value="64b110c1-28ef-4db8-a60c-2ea199508251">
+    <input type="hidden" name="subject" value="Nouvel avis client — Casa d'Oro">
+    <input type="checkbox" name="botcheck" style="display:none;">
     <div class="form__group">
       <label class="form__label" for="a-nom">Votre prénom</label>
       <input class="form__input" type="text" id="a-nom" name="nom" required placeholder="Votre prénom">
