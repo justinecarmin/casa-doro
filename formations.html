@@ -38,7 +38,7 @@
     <div class="prochaine-card prochaine-card--dispo">
       <span class="prochaine-card__date">29 juin 2026</span>
       <span class="prochaine-card__nom">Formation Drainage Lymphatique</span>
-      <span class="prochaine-card__statut">Dernière place disponible</span>
+      <button class="prochaine-card__statut" onclick="ouvrirReservation('Formation Drainage Lymphatique — 29 juin 2026')">Dernière place disponible</button>
     </div>
     <div class="prochaine-card prochaine-card--full">
       <span class="prochaine-card__date">5 juillet 2026</span>
@@ -48,12 +48,12 @@
     <div class="prochaine-card prochaine-card--dispo">
       <span class="prochaine-card__date">13 juillet 2026</span>
       <span class="prochaine-card__nom">Formation Body Care</span>
-      <span class="prochaine-card__statut">2 places disponibles</span>
+      <button class="prochaine-card__statut" onclick="ouvrirReservation('Formation Body Care — 13 juillet 2026')">2 places disponibles</button>
     </div>
     <div class="prochaine-card prochaine-card--dispo">
       <span class="prochaine-card__date">29 juillet 2026</span>
       <span class="prochaine-card__nom">Formation Drainage Lymphatique</span>
-      <span class="prochaine-card__statut">2 places disponibles</span>
+      <button class="prochaine-card__statut" onclick="ouvrirReservation('Formation Drainage Lymphatique — 29 juillet 2026')">2 places disponibles</button>
     </div>
   </div>
 </section>
@@ -167,6 +167,44 @@
   </form>
 </section>
 
+<!-- Modal réservation -->
+<div id="resa-modal" class="resa-modal" aria-hidden="true" onclick="if(event.target===this)fermerReservation()">
+  <div class="resa-modal__box">
+    <button class="resa-modal__close" onclick="fermerReservation()" aria-label="Fermer">✕</button>
+    <span class="label" style="display:block;margin-bottom:16px;">Réserver une place</span>
+    <p id="resa-modal__titre" style="font-family:var(--font-serif);font-style:italic;font-size:18px;margin-bottom:24px;color:var(--gold);"></p>
+    <form class="form" data-w3f method="POST">
+      <input type="hidden" name="access_key" value="64b110c1-28ef-4db8-a60c-2ea199508251">
+      <input type="hidden" name="subject" value="Demande de réservation — Casa d'Oro">
+      <input type="hidden" name="formation" id="resa-formation">
+      <input type="checkbox" name="botcheck" style="display:none;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form__group">
+          <label class="form__label" for="resa-nom">Nom</label>
+          <input class="form__input" type="text" id="resa-nom" name="nom" required placeholder="Votre nom">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="resa-prenom">Prénom</label>
+          <input class="form__input" type="text" id="resa-prenom" name="prenom" required placeholder="Votre prénom">
+        </div>
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="resa-societe">Nom / Société (optionnel)</label>
+        <input class="form__input" type="text" id="resa-societe" name="societe" placeholder="Votre société">
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="resa-email">Email</label>
+        <input class="form__input" type="email" id="resa-email" name="email" required placeholder="votre@email.com">
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="resa-commentaire">Commentaire (optionnel)</label>
+        <textarea class="form__textarea" id="resa-commentaire" name="commentaire" placeholder="Questions, informations complémentaires…" style="min-height:80px;"></textarea>
+      </div>
+      <button type="submit" class="btn btn--dark" style="width:100%;">Envoyer ma demande</button>
+    </form>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="footer__logo">Casa d'Oro</div>
   <div class="footer__info">
@@ -208,6 +246,26 @@
       }
     });
   }
+
+  function ouvrirReservation(formation) {
+    document.getElementById('resa-formation').value = formation;
+    document.getElementById('resa-modal__titre').textContent = formation;
+    const modal = document.getElementById('resa-modal');
+    modal.classList.add('resa-modal--open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function fermerReservation() {
+    const modal = document.getElementById('resa-modal');
+    modal.classList.remove('resa-modal--open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') fermerReservation();
+  });
 </script>
 </body>
 </html>

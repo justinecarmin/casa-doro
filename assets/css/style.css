@@ -662,3 +662,53 @@ body {
   border: none;
   background: var(--dark-bg);
 }
+
+/* ============================
+   MODAL RÉSERVATION
+   ============================ */
+.resa-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 37, 32, 0.6);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.resa-modal--open { display: flex; }
+.resa-modal__box {
+  background: var(--cream);
+  padding: 48px;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.resa-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--text-muted);
+  line-height: 1;
+}
+.resa-modal__close:hover { color: var(--dark); }
+.prochaine-card__statut button,
+button.prochaine-card__statut {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+}
+@media (max-width: 600px) {
+  .resa-modal__box { padding: 32px 24px; }
+  .resa-modal__box > div[style*="grid"] { grid-template-columns: 1fr !important; }
+}
