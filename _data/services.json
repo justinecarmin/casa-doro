@@ -14,7 +14,7 @@
     { "nom": "Forfait 10 séances visage", "duree": "1h", "prix": 1000, "forfait": true, "description": "Décuple les résultats et les bienfaits dans le temps." }
   ],
   "reiki": [
-    { "nom": "Reiki Usui Tibétain", "duree": "1h", "prix": 80, "forfait": false },
+    { "nom": "Reiki Usui Tibétain", "duree": "1h", "prix": 80, "forfait": false, "description": "Soin énergétique ancestral par imposition des mains. Le Reiki Usui Tibétain rééquilibre les flux d'énergie vitale, apaise le système nerveux et favorise un profond état de relaxation et de bien-être." },
     { "nom": "Forfait 4 séances", "duree": "", "prix": 280, "forfait": true }
   ],
   "bains_sonores": [
