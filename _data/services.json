@@ -1,11 +1,11 @@
 {
   "corps_visage": [
     { "nom": "Drainage lymphatique Renata França", "duree": "1h / 1h15", "prix": 150, "forfait": false, "description": "Technique manuelle Renata França — des mouvements rythmés et drainants pour stimuler la circulation lymphatique, réduire les gonflements et affiner la silhouette. Résultats visibles dès la première séance." },
-    { "nom": "Remodelage Renata França", "duree": "1h / 1h15", "prix": 150, "forfait": false },
-    { "nom": "Madothérapie Olfa Perbal Paris", "duree": "1h / 1h15", "prix": 150, "forfait": false },
-    { "nom": "Body Care (drainage + remodelage + madothérapie)", "duree": "1h / 1h15", "prix": 150, "forfait": false },
-    { "nom": "Body Care (drainage + remodelage + madothérapie)", "duree": "1h30 / 1h45", "prix": 200, "forfait": false },
-    { "nom": "Face Care — drainage, remodelage, lithothérapie", "duree": "1h", "prix": 125, "forfait": false },
+    { "nom": "Remodelage Renata França", "duree": "1h / 1h15", "prix": 150, "forfait": false, "description": "Technique manuelle Renata França ciblant les zones de rétention et les tissus adipeux. Des mouvements profonds et sculptants pour remodeler la silhouette et tonifier les tissus. Complément idéal du drainage lymphatique." },
+    { "nom": "Madothérapie Olfa Perbal Paris", "duree": "1h / 1h15", "prix": 150, "forfait": false, "description": "Technique d'origine coréenne utilisant des outils en bois (maderos) pour drainer, déstresser les fascias et remodeler la silhouette. Une approche complémentaire aux techniques manuelles pour des résultats amplifiés." },
+    { "nom": "Body Care (drainage + remodelage + madothérapie)", "duree": "1h / 1h15", "prix": 150, "forfait": false, "description": "Association du drainage lymphatique, du remodelage et de la madothérapie en une seule séance complète. Le protocole intégral Casa d'Oro pour des résultats maximaux sur la silhouette, la circulation et l'éclat de la peau." },
+    { "nom": "Body Care (drainage + remodelage + madothérapie)", "duree": "1h30 / 1h45", "prix": 200, "forfait": false, "description": "Association du drainage lymphatique, du remodelage et de la madothérapie en une seule séance complète. Le protocole intégral Casa d'Oro pour des résultats maximaux sur la silhouette, la circulation et l'éclat de la peau." },
+    { "nom": "Face Care — drainage, remodelage, lithothérapie", "duree": "1h", "prix": 125, "forfait": false, "description": "Soin visage complet alliant drainage lymphatique, remodelage facial et lithothérapie (pierres de jade). Lisse les traits, dépuffie le regard, redessine les contours du visage et apporte un éclat immédiat." },
     { "nom": "Forfait 5 séances corps", "duree": "1h / 1h15", "prix": 650, "forfait": true },
     { "nom": "Forfait 10 séances corps", "duree": "1h / 1h15", "prix": 1100, "forfait": true },
     { "nom": "Forfait 5 séances corps", "duree": "1h30 / 1h45", "prix": 900, "forfait": true },
