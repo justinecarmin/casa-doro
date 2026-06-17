@@ -84,6 +84,8 @@ async function loadAPropos() {
     const bio2El = document.getElementById('bio2');
     if (bio1El && data.bio1) bio1El.textContent = data.bio1;
     if (bio2El && data.bio2) bio2El.textContent = data.bio2;
+    const bio3El = document.getElementById('bio3');
+    if (bio3El && data.bio3) bio3El.textContent = data.bio3;
     const photoJustine = document.getElementById('photo-justine');
     if (photoJustine && data.photo_justine) {
       photoJustine.outerHTML = `<img src="${esc(data.photo_justine)}" alt="Justine" style="width:100%;aspect-ratio:3/4;object-fit:cover;">`;
