@@ -10,8 +10,8 @@
     { "nom": "Forfait 10 séances corps", "duree": "1h / 1h15", "prix": 1100, "forfait": true },
     { "nom": "Forfait 5 séances corps", "duree": "1h30 / 1h45", "prix": 900, "forfait": true },
     { "nom": "Forfait 10 séances corps", "duree": "1h30 / 1h45", "prix": 1600, "forfait": true },
-    { "nom": "Forfait 5 séances visage", "duree": "", "prix": 550, "forfait": true },
-    { "nom": "Forfait 10 séances visage", "duree": "", "prix": 1000, "forfait": true }
+    { "nom": "Forfait 5 séances visage", "duree": "1h", "prix": 550, "forfait": true },
+    { "nom": "Forfait 10 séances visage", "duree": "1h", "prix": 1000, "forfait": true }
   ],
   "reiki": [
     { "nom": "Reiki Usui Tibétain", "duree": "1h", "prix": 80, "forfait": false },
