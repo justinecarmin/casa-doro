@@ -225,6 +225,33 @@ body {
 }
 .forfait-row td { color: var(--text-muted); font-style: italic; }
 
+.soin-details { display: block; }
+.soin-details summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.soin-details summary::-webkit-details-marker { display: none; }
+.soin-details summary::before {
+  content: '▶';
+  font-size: 7px;
+  color: var(--dark);
+  margin-right: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.soin-details[open] summary::before { transform: rotate(90deg); }
+.soin-details__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  padding: 10px 0 6px 16px;
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
 /* ============================
    POLAROIDS AVANT/APRÈS
    ============================ */

@@ -1,6 +1,6 @@
 {
   "corps_visage": [
-    { "nom": "Drainage lymphatique Renata França", "duree": "1h / 1h15", "prix": 150, "forfait": false },
+    { "nom": "Drainage lymphatique Renata França", "duree": "1h / 1h15", "prix": 150, "forfait": false, "description": "Technique manuelle Renata França — des mouvements rythmés et drainants pour stimuler la circulation lymphatique, réduire les gonflements et affiner la silhouette. Résultats visibles dès la première séance." },
     { "nom": "Remodelage Renata França", "duree": "1h / 1h15", "prix": 150, "forfait": false },
     { "nom": "Madothérapie Olfa Perbal Paris", "duree": "1h / 1h15", "prix": 150, "forfait": false },
     { "nom": "Body Care (drainage + remodelage + madothérapie)", "duree": "1h / 1h15", "prix": 150, "forfait": false },

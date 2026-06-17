@@ -43,12 +43,13 @@ async function loadServices() {
 function renderServiceTable(items, selector) {
   const el = document.querySelector(selector);
   if (!el || !items) return;
-  el.innerHTML = items.map(s => `
-    <tr class="${s.forfait ? 'forfait-row' : ''}">
-      <td>${esc(s.nom)}${s.duree ? ' <span style="color:var(--text-muted);font-size:12px">— ' + esc(s.duree) + '</span>' : ''}</td>
-      <td>${s.prix} €</td>
-    </tr>
-  `).join('');
+  el.innerHTML = items.map(s => {
+    const dureeSpan = s.duree ? ` <span style="color:var(--text-muted);font-size:12px">— ${esc(s.duree)}</span>` : '';
+    const nameCell = s.description
+      ? `<details class="soin-details"><summary>${esc(s.nom)}${dureeSpan}</summary><p class="soin-details__desc">${esc(s.description)}</p></details>`
+      : `${esc(s.nom)}${dureeSpan}`;
+    return `<tr class="${s.forfait ? 'forfait-row' : ''}"><td>${nameCell}</td><td>${s.prix} €</td></tr>`;
+  }).join('');
 }
 
 async function loadFormations() {
