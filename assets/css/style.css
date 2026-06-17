@@ -99,6 +99,7 @@ body {
   white-space: nowrap;
 }
 .nav__phone:hover { color: var(--dark) !important; }
+.nav__phone--bar { display: none; }
 .nav__cta {
   padding: 10px 22px;
   background: var(--dark);
@@ -440,6 +441,13 @@ body {
   .nav__links li { width: 100%; text-align: center; }
   .nav__links a { display: block; padding: 16px; }
   .nav__toggle { display: flex; }
+  .nav__phone--bar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 16px;
+    font-size: 11px;
+  }
 
   .hero__title { font-size: 48px; }
   .hero--inner .hero__title { font-size: 36px; }
