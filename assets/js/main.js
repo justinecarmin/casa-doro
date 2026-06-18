@@ -10,7 +10,7 @@ const STRIPE_LINKS = {
   900:  'https://buy.stripe.com/cNidRa15Q8AV2lI5ULdEs07',
   1000: 'https://buy.stripe.com/4gMeVe4i204p8K696XdEs08',
   1100: 'https://buy.stripe.com/fZu9AU7ue4kFgcygzpdEs09',
-  1600: 'https://buy.stripe.com/LIEN_1600EUR',
+  1600: 'https://buy.stripe.com/bJe7sM15QdVff8u4QHdEs0a',
   custom: 'https://buy.stripe.com/LIEN_MONTANT_LIBRE',
 };
 
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const bcForm = document.getElementById('bon-cadeau-form');
   if (bcForm) {
-    bcForm.addEventListener('submit', function(e) {
+    bcForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       const val = document.getElementById('bc-soin').value;
       if (!val) return;
@@ -93,16 +93,34 @@ document.addEventListener('DOMContentLoaded', () => {
       const offreur      = document.getElementById('bc-offreur').value;
       const destinataire = document.getElementById('bc-destinataire').value;
       const email        = document.getElementById('bc-email').value;
-      let stripeUrl, montantFinal;
       if (montant === 'custom') {
         const libre = parseInt(document.getElementById('bc-montant-libre').value);
         if (!libre || libre < 1) { alert('Veuillez saisir un montant valide.'); return; }
-        montantFinal = libre;
-        stripeUrl = STRIPE_LINKS.custom;
-      } else {
-        montantFinal = parseInt(montant);
-        stripeUrl = STRIPE_LINKS[montantFinal];
+        const btn = bcForm.querySelector('[type="submit"]');
+        btn.disabled = true;
+        try {
+          const fd = new FormData();
+          fd.append('access_key', '64b110c1-28ef-4db8-a60c-2ea199508251');
+          fd.append('subject', 'Bon Cadeau – Montant libre');
+          fd.append('from_name', offreur);
+          fd.append('email', email);
+          fd.append('message', `Demande de bon cadeau montant libre\n\nOffreur : ${offreur}\nDestinataire : ${destinataire}\nEmail : ${email}\nMontant souhaité : ${libre} €\nSoin : ${soin || 'Non précisé'}`);
+          const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+          const json = await res.json();
+          if (json.success) {
+            window.location.href = 'merci.html';
+          } else {
+            alert('Une erreur est survenue. Veuillez réessayer.');
+            btn.disabled = false;
+          }
+        } catch {
+          alert('Une erreur est survenue. Veuillez réessayer.');
+          btn.disabled = false;
+        }
+        return;
       }
+      const montantFinal = parseInt(montant);
+      const stripeUrl = STRIPE_LINKS[montantFinal];
       if (!stripeUrl || stripeUrl.includes('LIEN_')) {
         alert('Le paiement en ligne sera bientôt disponible. Contactez-nous directement.');
         return;
