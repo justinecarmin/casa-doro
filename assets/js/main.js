@@ -1,6 +1,6 @@
 // ---- Bons Cadeaux ----
 const STRIPE_LINKS = {
-  80:   'https://buy.stripe.com/LIEN_80EUR',
+  80:   'https://buy.stripe.com/28E3cw7ue4kFf8ubf5dEs00',
   125:  'https://buy.stripe.com/LIEN_125EUR',
   150:  'https://buy.stripe.com/LIEN_150EUR',
   200:  'https://buy.stripe.com/LIEN_200EUR',
