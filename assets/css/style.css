@@ -712,3 +712,36 @@ button.prochaine-card__statut {
   .resa-modal__box { padding: 32px 24px; }
   .resa-modal__box > div[style*="grid"] { grid-template-columns: 1fr !important; }
 }
+
+/* ============================
+   BON CADEAU
+   ============================ */
+.bon-cadeau-banner {
+  background: var(--beige);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 48px;
+  display: flex;
+  align-items: center;
+}
+.bon-cadeau-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.bon-cadeau-btn:hover {
+  background: var(--gold);
+  color: var(--cream);
+}
+@media (max-width: 768px) {
+  .bon-cadeau-banner { padding: 14px 20px; }
+}
