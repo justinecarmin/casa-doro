@@ -55,6 +55,8 @@
 
 <nav class="nav">
   <a href="index.html" class="nav__logo">Casa d'Oro</a>
+  <button class="nav__gift" onclick="ouvrirBonCadeau()"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>Bons cadeaux</button>
+
   <a href="tel:+33647083060" class="nav__phone nav__phone--bar"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;margin-bottom:1px;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>+33 6 47 08 30 60</a>
   <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -252,6 +254,57 @@
         <textarea class="form__textarea" id="resa-commentaire" name="commentaire" placeholder="Questions, informations complémentaires…" style="min-height:80px;"></textarea>
       </div>
       <button type="submit" class="btn btn--dark" style="width:100%;">Envoyer ma demande</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Bon Cadeau -->
+<div id="bon-cadeau-modal" class="resa-modal" aria-hidden="true" onclick="if(event.target===this)fermerBonCadeau()">
+  <div class="resa-modal__box">
+    <button class="resa-modal__close" onclick="fermerBonCadeau()" aria-label="Fermer">✕</button>
+    <span class="label" style="display:block;margin-bottom:8px;">Casa d'Oro by Justine</span>
+    <h2 style="font-family:var(--font-serif);font-style:italic;font-size:26px;margin-bottom:28px;color:var(--dark);">Offrir un bon cadeau</h2>
+    <form id="bon-cadeau-form">
+      <div class="form__group">
+        <label class="form__label">Soin ou montant</label>
+        <select class="form__select" id="bc-soin" required>
+          <option value="" disabled selected>Choisir un soin ou un montant</option>
+          <optgroup label="Soins Corps &amp; Visage">
+            <option value="150|Drainage lymphatique Renata França">Drainage lymphatique Renata França — 150 €</option>
+            <option value="150|Remodelage Renata França">Remodelage Renata França — 150 €</option>
+            <option value="150|Madothérapie Olfa Perbal Paris">Madothérapie Olfa Perbal Paris — 150 €</option>
+            <option value="150|Body Care (1h/1h15)">Body Care (1h/1h15) — 150 €</option>
+            <option value="200|Body Care (1h30/1h45)">Body Care (1h30/1h45) — 200 €</option>
+            <option value="125|Face Care">Face Care — 125 €</option>
+          </optgroup>
+          <optgroup label="Bien-être">
+            <option value="80|Reiki Usui Tibétain">Reiki Usui Tibétain — 80 €</option>
+            <option value="80|Bain sonore individuel">Bain sonore individuel — 80 €</option>
+          </optgroup>
+          <optgroup label="Montant libre">
+            <option value="50|Bon cadeau 50 €">Bon cadeau 50 €</option>
+            <option value="100|Bon cadeau 100 €">Bon cadeau 100 €</option>
+            <option value="150|Bon cadeau 150 €">Bon cadeau 150 €</option>
+            <option value="200|Bon cadeau 200 €">Bon cadeau 200 €</option>
+          </optgroup>
+        </select>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form__group">
+          <label class="form__label" for="bc-offreur">Votre nom (qui offre)</label>
+          <input class="form__input" type="text" id="bc-offreur" required placeholder="Votre nom">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="bc-destinataire">Nom du destinataire</label>
+          <input class="form__input" type="text" id="bc-destinataire" required placeholder="À offrir à…">
+        </div>
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="bc-email">Votre email</label>
+        <input class="form__input" type="email" id="bc-email" required placeholder="votre@email.com">
+      </div>
+      <button type="submit" class="btn btn--dark" style="width:100%;margin-top:8px;">Procéder au paiement →</button>
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px;">Vous serez redirigé vers notre page de paiement sécurisé Stripe</p>
     </form>
   </div>
 </div>

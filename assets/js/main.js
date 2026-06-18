@@ -1,3 +1,29 @@
+// ---- Bons Cadeaux ----
+const STRIPE_LINKS = {
+  50:  'https://buy.stripe.com/LIEN_50EUR',
+  80:  'https://buy.stripe.com/LIEN_80EUR',
+  100: 'https://buy.stripe.com/LIEN_100EUR',
+  125: 'https://buy.stripe.com/LIEN_125EUR',
+  150: 'https://buy.stripe.com/LIEN_150EUR',
+  200: 'https://buy.stripe.com/LIEN_200EUR',
+};
+
+function ouvrirBonCadeau() {
+  const modal = document.getElementById('bon-cadeau-modal');
+  if (!modal) return;
+  modal.classList.add('resa-modal--open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function fermerBonCadeau() {
+  const modal = document.getElementById('bon-cadeau-modal');
+  if (!modal) return;
+  modal.classList.remove('resa-modal--open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Web3Forms handler
   document.querySelectorAll('form[data-w3f]').forEach(form => {
@@ -33,6 +59,30 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('active');
     }
   });
+
+  // Bon Cadeau modal form
+  const bcForm = document.getElementById('bon-cadeau-form');
+  if (bcForm) {
+    bcForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const val = document.getElementById('bc-soin').value;
+      if (!val) return;
+      const [montant, soin] = val.split('|');
+      const offreur      = document.getElementById('bc-offreur').value;
+      const destinataire = document.getElementById('bc-destinataire').value;
+      const email        = document.getElementById('bc-email').value;
+      const stripeUrl    = STRIPE_LINKS[parseInt(montant)];
+      if (!stripeUrl || stripeUrl.includes('LIEN_')) {
+        alert('Le paiement en ligne sera bientôt disponible. Contactez-nous directement.');
+        return;
+      }
+      window.location.href = stripeUrl
+        + '?prefilled_email=' + encodeURIComponent(email)
+        + '&client_reference_id=' + encodeURIComponent('BON|' + soin + '|Pour:' + destinataire + '|De:' + offreur);
+    });
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') fermerBonCadeau(); });
 
   // Hamburger menu
   const toggle = document.querySelector('.nav__toggle');

@@ -100,6 +100,24 @@ body {
 }
 .nav__phone:hover { color: var(--dark) !important; }
 .nav__phone--bar { display: none; }
+.nav__gift {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+  margin-left: 24px;
+}
+.nav__gift:hover { background: var(--gold); color: var(--cream); }
 .nav__cta {
   padding: 10px 22px;
   background: var(--dark);
