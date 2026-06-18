@@ -188,13 +188,27 @@
             <option value="80|Reiki Usui Tibétain">Reiki Usui Tibétain — 80 €</option>
             <option value="80|Bain sonore individuel">Bain sonore individuel — 80 €</option>
           </optgroup>
+          <optgroup label="Cures (Forfaits Corps)">
+            <option value="650|Forfait 5 séances corps (1h/1h15)">Forfait 5 séances corps 1h/1h15 — 650 €</option>
+            <option value="1100|Forfait 10 séances corps (1h/1h15)">Forfait 10 séances corps 1h/1h15 — 1 100 €</option>
+            <option value="900|Forfait 5 séances corps (1h30/1h45)">Forfait 5 séances corps 1h30/1h45 — 900 €</option>
+            <option value="1600|Forfait 10 séances corps (1h30/1h45)">Forfait 10 séances corps 1h30/1h45 — 1 600 €</option>
+          </optgroup>
+          <optgroup label="Cures (Forfaits Visage)">
+            <option value="550|Forfait 5 séances visage">Forfait 5 séances visage — 550 €</option>
+            <option value="1000|Forfait 10 séances visage">Forfait 10 séances visage — 1 000 €</option>
+          </optgroup>
+          <optgroup label="Reiki">
+            <option value="280|Forfait 4 séances Reiki">Forfait 4 séances Reiki — 280 €</option>
+          </optgroup>
           <optgroup label="Montant libre">
-            <option value="50|Bon cadeau 50 €">Bon cadeau 50 €</option>
-            <option value="100|Bon cadeau 100 €">Bon cadeau 100 €</option>
-            <option value="150|Bon cadeau 150 €">Bon cadeau 150 €</option>
-            <option value="200|Bon cadeau 200 €">Bon cadeau 200 €</option>
+            <option value="custom|Montant libre">Montant libre — saisir le montant</option>
           </optgroup>
         </select>
+      </div>
+      <div class="form__group" id="bc-montant-libre-group" style="display:none;">
+        <label class="form__label" for="bc-montant-libre">Montant souhaité (€)</label>
+        <input class="form__input" type="number" id="bc-montant-libre" min="1" placeholder="Ex: 75">
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <div class="form__group">

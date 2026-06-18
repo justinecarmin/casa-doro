@@ -1,11 +1,17 @@
 // ---- Bons Cadeaux ----
 const STRIPE_LINKS = {
-  50:  'https://buy.stripe.com/LIEN_50EUR',
-  80:  'https://buy.stripe.com/LIEN_80EUR',
-  100: 'https://buy.stripe.com/LIEN_100EUR',
-  125: 'https://buy.stripe.com/LIEN_125EUR',
-  150: 'https://buy.stripe.com/LIEN_150EUR',
-  200: 'https://buy.stripe.com/LIEN_200EUR',
+  80:   'https://buy.stripe.com/LIEN_80EUR',
+  125:  'https://buy.stripe.com/LIEN_125EUR',
+  150:  'https://buy.stripe.com/LIEN_150EUR',
+  200:  'https://buy.stripe.com/LIEN_200EUR',
+  280:  'https://buy.stripe.com/LIEN_280EUR',
+  550:  'https://buy.stripe.com/LIEN_550EUR',
+  650:  'https://buy.stripe.com/LIEN_650EUR',
+  900:  'https://buy.stripe.com/LIEN_900EUR',
+  1000: 'https://buy.stripe.com/LIEN_1000EUR',
+  1100: 'https://buy.stripe.com/LIEN_1100EUR',
+  1600: 'https://buy.stripe.com/LIEN_1600EUR',
+  custom: 'https://buy.stripe.com/LIEN_MONTANT_LIBRE',
 };
 
 function ouvrirBonCadeau() {
@@ -61,6 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Bon Cadeau modal form
+  const bcSoin = document.getElementById('bc-soin');
+  const bcLibreGroup = document.getElementById('bc-montant-libre-group');
+  const bcLibreInput = document.getElementById('bc-montant-libre');
+  if (bcSoin && bcLibreGroup) {
+    bcSoin.addEventListener('change', function() {
+      const [montant] = this.value.split('|');
+      if (montant === 'custom') {
+        bcLibreGroup.style.display = 'block';
+        bcLibreInput.required = true;
+      } else {
+        bcLibreGroup.style.display = 'none';
+        bcLibreInput.required = false;
+      }
+    });
+  }
+
   const bcForm = document.getElementById('bon-cadeau-form');
   if (bcForm) {
     bcForm.addEventListener('submit', function(e) {
@@ -71,14 +93,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const offreur      = document.getElementById('bc-offreur').value;
       const destinataire = document.getElementById('bc-destinataire').value;
       const email        = document.getElementById('bc-email').value;
-      const stripeUrl    = STRIPE_LINKS[parseInt(montant)];
+      let stripeUrl, montantFinal;
+      if (montant === 'custom') {
+        const libre = parseInt(document.getElementById('bc-montant-libre').value);
+        if (!libre || libre < 1) { alert('Veuillez saisir un montant valide.'); return; }
+        montantFinal = libre;
+        stripeUrl = STRIPE_LINKS.custom;
+      } else {
+        montantFinal = parseInt(montant);
+        stripeUrl = STRIPE_LINKS[montantFinal];
+      }
       if (!stripeUrl || stripeUrl.includes('LIEN_')) {
         alert('Le paiement en ligne sera bientôt disponible. Contactez-nous directement.');
         return;
       }
       window.location.href = stripeUrl
         + '?prefilled_email=' + encodeURIComponent(email)
-        + '&client_reference_id=' + encodeURIComponent('BON|' + soin + '|Pour:' + destinataire + '|De:' + offreur);
+        + '&client_reference_id=' + encodeURIComponent('BON|' + soin + '|' + montantFinal + 'EUR|Pour:' + destinataire + '|De:' + offreur);
     });
   }
 
