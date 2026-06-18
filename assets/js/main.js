@@ -6,7 +6,7 @@ const STRIPE_LINKS = {
   200:  'https://buy.stripe.com/cNicN66qa4kFbWicj9dEs03',
   280:  'https://buy.stripe.com/cNifZi6qaeZjaSe5ULdEs04',
   550:  'https://buy.stripe.com/6oUaEYdSC9EZgcygzpdEs05',
-  650:  'https://buy.stripe.com/LIEN_650EUR',
+  650:  'https://buy.stripe.com/7sY28s9Cm5oJd0m5ULdEs06',
   900:  'https://buy.stripe.com/LIEN_900EUR',
   1000: 'https://buy.stripe.com/LIEN_1000EUR',
   1100: 'https://buy.stripe.com/LIEN_1100EUR',
