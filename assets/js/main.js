@@ -9,7 +9,7 @@ const STRIPE_LINKS = {
   650:  'https://buy.stripe.com/7sY28s9Cm5oJd0m5ULdEs06',
   900:  'https://buy.stripe.com/cNidRa15Q8AV2lI5ULdEs07',
   1000: 'https://buy.stripe.com/4gMeVe4i204p8K696XdEs08',
-  1100: 'https://buy.stripe.com/LIEN_1100EUR',
+  1100: 'https://buy.stripe.com/fZu9AU7ue4kFgcygzpdEs09',
   1600: 'https://buy.stripe.com/LIEN_1600EUR',
   custom: 'https://buy.stripe.com/LIEN_MONTANT_LIBRE',
 };
