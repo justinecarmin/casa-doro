@@ -3,20 +3,32 @@
     {
       "nom": "Sophie M.",
       "note": 5,
-      "texte": "Résultats incroyables dès la première séance. Justine est professionnelle et à l'écoute. Je recommande vivement !",
+      "texte": "Je souffrais de jambes lourdes depuis des années. Après seulement 3 séances de drainage lymphatique Renata França avec Justine, j'ai retrouvé une légèreté incroyable. Je recommande à 100% !",
+      "visible": true
+    },
+    {
+      "nom": "Camille R.",
+      "note": 5,
+      "texte": "J'avais beaucoup de rétention d'eau et une silhouette qui ne bougeait plus malgré le sport. La madérothérapie chez Casa d'Oro a tout changé. Des résultats visibles dès la première séance, c'est bluffant.",
+      "visible": true
+    },
+    {
+      "nom": "Marie-Christine B.",
+      "note": 5,
+      "texte": "Le drainage lymphatique Renata França de Justine est tout simplement magique. Mes jambes lourdes ont disparu, mon ventre est plat et je me sens tellement plus légère. Un vrai miracle à Ajaccio !",
       "visible": true
     },
     {
       "nom": "Léa P.",
       "note": 5,
       "texte": "Formation Body Care au top. Des techniques que j'applique immédiatement avec mes clientes. Merci Justine !",
-      "visible": true
+      "visible": false
     },
     {
-      "nom": "Marie-Christine B.",
+      "nom": "Inès T.",
       "note": 5,
-      "texte": "Un cadre magnifique, une praticienne talentueuse. Le drainage lymphatique a vraiment changé ma silhouette.",
-      "visible": true
+      "texte": "La madérothérapie m'a aidée à drainer ma rétention d'eau post-grossesse. Justine est à l'écoute, douce et très professionnelle. Je ne vais nulle part ailleurs !",
+      "visible": false
     }
   ]
 }
