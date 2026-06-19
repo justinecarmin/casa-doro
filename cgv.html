@@ -3,19 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Message envoyé — Casa d'Oro by Justine</title>
+  <meta name="description" content="Conditions Générales de Vente - Casa d'Oro by Justine">
+  <title>CGV — Casa d'Oro by Justine</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
   <link rel="icon" type="image/png" href="/favicon.ico">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    .cgv-content {
+      max-width: 800px;
+      margin: 120px auto 80px;
+      padding: 0 24px;
+      line-height: 1.8;
+    }
+    .cgv-content h1 {
+      font-size: 36px;
+      margin-bottom: 8px;
+      color: var(--dark);
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+    .cgv-content .cgv-date {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      display: block;
+    }
+    .cgv-content h2 {
+      font-size: 18px;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: var(--dark);
+      font-family: var(--font-serif);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    .cgv-content p {
+      margin-bottom: 14px;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .cgv-content ul {
+      margin-bottom: 14px;
+      padding-left: 20px;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .cgv-content li { margin-bottom: 6px; }
+  </style>
 </head>
 <body>
 
 <nav class="nav">
   <a href="index.html" class="nav__logo">Casa d'Oro</a>
   <button class="nav__gift" onclick="ouvrirBonCadeau()"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>Bons cadeaux</button>
-
   <a href="tel:+33647083060" class="nav__phone nav__phone--bar"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;margin-bottom:1px;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>+33 6 47 08 30 60</a>
   <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -30,17 +73,61 @@
   </ul>
 </nav>
 
-<section class="hero hero--inner" style="min-height: 60vh;">
-  <div class="hero__content">
-    <span class="hero__pre label">✦</span>
-    <h1 class="hero__title heading" style="font-size:42px;">Message envoyé</h1>
-    <div class="hero__divider"></div>
-    <p style="font-family:var(--font-sans); font-size:14px; color:var(--text-muted); margin-bottom:40px; line-height:2;">
-      Merci pour votre message.<br>Justine vous répondra dans les meilleurs délais.
-    </p>
-    <a href="index.html" class="btn btn--outline">Retour à l'accueil</a>
-  </div>
-</section>
+<div class="cgv-content">
+  <h1>Conditions Générales de Vente</h1>
+  <span class="cgv-date">En vigueur au 1er juin 2026</span>
+
+  <h2>1. Identification du prestataire</h2>
+  <p>
+    Casa d'Oro by Justine<br>
+    Résidence le Panorama Bat D1, Aspretto — 20090 Ajaccio<br>
+    Tél. : <a href="tel:+33647083060">+33 6 47 08 30 60</a><br>
+    Email : <a href="mailto:cabinetcasadoro@gmail.com">cabinetcasadoro@gmail.com</a><br>
+    TVA non applicable en vertu de l'article 293 B du CGI.
+  </p>
+
+  <h2>2. Objet</h2>
+  <p>Les présentes conditions générales de vente (CGV) s'appliquent à toutes les prestations de bien-être (soins corps et visage, reiki, bains sonores), formations et ventes de bons cadeaux proposés par Casa d'Oro by Justine. Toute commande ou réservation implique l'acceptation pleine et entière des présentes CGV.</p>
+
+  <h2>3. Tarifs et paiement</h2>
+  <p>Les prix sont indiqués en euros (€). TVA non applicable, art. 293 B du CGI. L'institut se réserve le droit de modifier ses tarifs à tout moment ; les prestations sont facturées au tarif en vigueur au moment de la réservation.</p>
+  <p>Modes de paiement acceptés :</p>
+  <ul>
+    <li>En cabinet : espèces, carte bancaire</li>
+    <li>En ligne (bons cadeaux) : paiement sécurisé par carte bancaire via Stripe</li>
+  </ul>
+
+  <h2>4. Réservation et annulation (soins)</h2>
+  <p>Les réservations s'effectuent via Treatwell, par téléphone ou sur place. Toute annulation ou report doit être signalé au moins <strong>24 heures à l'avance</strong>.</p>
+  <ul>
+    <li>Annulation ≥ 24h avant : aucun frais</li>
+    <li>Annulation &lt; 24h ou non-présentation : la séance est due intégralement ou décomptée d'une cure en cours</li>
+  </ul>
+  <p>En cas de retard, la durée du soin sera raccourcie d'autant afin de ne pas pénaliser les clients suivants.</p>
+
+  <h2>5. Bons cadeaux</h2>
+  <p>Les bons cadeaux sont valables <strong>12 mois</strong> à compter de la date d'achat. Ils sont nominatifs, non remboursables et non échangeables contre de l'argent. En cas de perte, Casa d'Oro by Justine ne saurait être tenu responsable.</p>
+
+  <h2>6. Forfaits et cures</h2>
+  <p>Les forfaits (5 ou 10 séances) sont nominatifs et valables <strong>12 mois</strong> à compter de la date d'achat. Ils ne sont pas remboursables après utilisation partielle.</p>
+
+  <h2>7. Formations</h2>
+  <p>L'inscription à une formation est confirmée à réception du paiement intégral. En cas d'annulation par le client :</p>
+  <ul>
+    <li>Plus de 7 jours avant la formation : remboursement intégral ou report</li>
+    <li>Moins de 7 jours avant : aucun remboursement (avoir possible à la discrétion du prestataire)</li>
+  </ul>
+  <p>En cas d'annulation par Casa d'Oro by Justine, les participants sont remboursés intégralement.</p>
+
+  <h2>8. Contre-indications médicales</h2>
+  <p>Certains soins présentent des contre-indications. Le client est tenu d'informer la praticienne de tout problème de santé, allergie, grossesse ou traitement médical en cours avant la prestation. Les soins proposés sont des soins de bien-être et de relaxation, non thérapeutiques et non médicalisés.</p>
+
+  <h2>9. Protection des données personnelles (RGPD)</h2>
+  <p>Les données collectées (nom, email, téléphone) sont utilisées uniquement pour la gestion des rendez-vous et la communication liée aux prestations. Elles ne sont pas transmises à des tiers. Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant : <a href="mailto:cabinetcasadoro@gmail.com">cabinetcasadoro@gmail.com</a>.</p>
+
+  <h2>10. Litiges</h2>
+  <p>En cas de litige, une solution amiable sera recherchée avant toute action judiciaire. À défaut, les tribunaux d'Ajaccio seront seuls compétents. Les présentes CGV sont soumises au droit français.</p>
+</div>
 
 <!-- Modal Bon Cadeau -->
 <div id="bon-cadeau-modal" class="resa-modal" aria-hidden="true" onclick="if(event.target===this)fermerBonCadeau()">
