@@ -78,7 +78,7 @@
     <div class="event-banner__left">
       <span class="label" style="color:var(--gold);">Événement · Dimanche 27 septembre 2026</span>
       <h2 class="event-banner__title">Sound Bath</h2>
-      <p class="event-banner__sub">Domaine Armani · Vero</p>
+      <p class="event-banner__sub">Domaine Armani</p>
     </div>
     <div class="event-banner__right">
       <span class="event-banner__places">
@@ -291,11 +291,9 @@
         if (places > 0) {
           placesCountEl.textContent = `${places} place${places > 1 ? 's' : ''} disponible${places > 1 ? 's' : ''}`;
         } else {
-          placesCountEl.textContent = 'Complet';
+          placesCountEl.textContent = 'Pour réserver ou plus d\'infos, contactez directement le domaine';
           if (bookingBtnEl) {
-            bookingBtnEl.textContent = 'Complet';
-            bookingBtnEl.style.pointerEvents = 'none';
-            bookingBtnEl.style.opacity = '0.6';
+            bookingBtnEl.textContent = 'Contacter le Domaine →';
           }
         }
       }
