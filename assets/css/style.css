@@ -828,3 +828,55 @@ button.prochaine-card__statut {
   .event-banner__right { width: 100%; justify-content: space-between; }
   .event-banner__title { font-size: 26px; }
 }
+
+/* ============================
+   BANNIÈRE PROMO RENTRÉE
+   ============================ */
+.promo-banner {
+  background: linear-gradient(135deg, #f7f0e3 0%, #efe5cc 100%);
+  border-top: 1px solid rgba(184,168,136,0.3);
+  border-bottom: 1px solid rgba(184,168,136,0.3);
+  padding: 28px 48px;
+}
+.promo-banner__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.promo-banner__icon {
+  font-size: 28px;
+  color: var(--gold);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.promo-banner__text {
+  flex: 1;
+  min-width: 220px;
+}
+.promo-banner__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--dark);
+  font-weight: 400;
+  margin: 0 0 6px;
+}
+.promo-banner__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.promo-banner__btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .promo-banner { padding: 24px 20px; }
+  .promo-banner__inner { gap: 16px; }
+  .promo-banner__btn { width: 100%; text-align: center; }
+}
