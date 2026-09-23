@@ -485,6 +485,12 @@ body {
   color: var(--cream);
   min-height: 80vh;
 }
+@media (min-width: 900px) {
+  .hero--video-bg {
+    min-height: auto;
+    aspect-ratio: 16/9;
+  }
+}
 .hero--video-bg::before {
   display: none;
 }
