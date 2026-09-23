@@ -483,6 +483,7 @@ body {
 /* HERO AVEC VIDÉO EN FOND */
 .hero--video-bg {
   color: var(--cream);
+  min-height: 70vh;
 }
 .hero--video-bg::before {
   display: none;
