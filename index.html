@@ -74,20 +74,14 @@
   </ul>
 </nav>
 
-<section class="event-banner">
-  <div class="event-banner__inner">
-    <div class="event-banner__left">
-      <span class="label" style="color:var(--gold);">Événement · Dimanche 11 octobre 2026</span>
-      <h2 class="event-banner__title">Sound Bath</h2>
-      <p class="event-banner__sub">Domaine Armani</p>
+<section class="promo-banner">
+  <div class="promo-banner__inner">
+    <div class="promo-banner__icon">✦</div>
+    <div class="promo-banner__text">
+      <p class="promo-banner__title">Bilan bien-être offert !</p>
+      <p class="promo-banner__desc">C'est la rentrée — je vous propose un bilan bien-être offert pour orienter votre soin ou votre cure adaptée à vos besoins.</p>
     </div>
-    <div class="event-banner__right">
-      <span class="event-banner__places">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-        <span id="event-places-count">10 places disponibles</span>
-      </span>
-      <a href="evenement.html" id="event-booking-btn" class="btn btn--dark event-banner__btn">Voir l'événement →</a>
-    </div>
+    <a href="https://widget.treatwell.fr/salon/casa-doro/" target="_blank" rel="noopener" class="btn btn--dark promo-banner__btn">Prendre rendez-vous →</a>
   </div>
 </section>
 
@@ -272,36 +266,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     loadTemoignages();
-    loadEventPlaces();
   });
-
-  async function loadEventPlaces() {
-    try {
-      const res = await fetch('https://dxsfsufzyzrtgbschupl.supabase.co/rest/v1/events?slug=eq.sound-bath-aout-2026&select=places', {
-        headers: {
-          'apikey': 'sb_publishable_cI3X3irU7lQkuRZbT_EkLA_TKlzfWat',
-          'Authorization': 'Bearer sb_publishable_cI3X3irU7lQkuRZbT_EkLA_TKlzfWat'
-        }
-      });
-      const data = await res.json();
-      if (data && data.length > 0) {
-        const places = data[0].places;
-        const placesCountEl = document.getElementById('event-places-count');
-        const bookingBtnEl = document.getElementById('event-booking-btn');
-
-        if (places > 0) {
-          placesCountEl.textContent = `${places} place${places > 1 ? 's' : ''} disponible${places > 1 ? 's' : ''}`;
-        } else {
-          placesCountEl.textContent = 'Pour réserver ou plus d\'infos, contactez directement le domaine';
-          if (bookingBtnEl) {
-            bookingBtnEl.textContent = 'Contacter le Domaine →';
-          }
-        }
-      }
-    } catch (e) {
-      console.error('Erreur chargement places Supabase:', e);
-    }
-  }
 
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
