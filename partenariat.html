@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="Partenariats entreprises et événementiel bien-être en Corse avec Casa d'Oro by Justine. Séminaires, soirées de prestige, pop-up, ateliers QVT, hôtels et domaines d'exception.">
+  <title>Partenariats &amp; Événements Entreprises — Casa d'Oro · Ajaccio, Corse</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+  <link rel="icon" type="image/png" href="/favicon.ico">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
+  <style>
+    .partenariat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .partenariat-formats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .format-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .format-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .format-card__icon {
+      font-size: 20px;
+      color: var(--gold);
+    }
+    .format-card__title {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--dark);
+      margin: 0;
+    }
+    .format-card__desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .atouts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .atout-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .atout-item__bullet {
+      color: var(--gold);
+      font-size: 14px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .atout-item h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 0 0 4px;
+      letter-spacing: 0.5px;
+    }
+    .atout-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .form-partenariat-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    @media (max-width: 900px) {
+      .partenariat-grid { grid-template-columns: 1fr; gap: 40px; }
+      .partenariat-formats { grid-template-columns: 1fr; }
+      .form-partenariat-box { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__logo">Casa d'Oro</a>
+  <button class="nav__gift" onclick="ouvrirBonCadeau()"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>Bons cadeaux</button>
+
+  <a href="tel:+33647083060" class="nav__phone nav__phone--bar"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;margin-bottom:1px;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>+33 6 47 08 30 60</a>
+  <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav__links">
+    <li><a href="soins.html">Soins</a></li>
+    <li><a href="formations.html">Formations</a></li>
+    <li><a href="partenariat.html" class="active">Partenariats</a></li>
+    <li><a href="a-propos.html">À Propos</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="tel:+33647083060" class="nav__phone"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;margin-bottom:1px;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>+33 6 47 08 30 60</a></li>
+    <li><a href="https://widget.treatwell.fr/salon/casa-doro/" target="_blank" rel="noopener" class="nav__cta">Réserver</a></li>
+  </ul>
+</nav>
+
+<section class="hero hero--inner">
+  <div class="hero__content">
+    <span class="hero__pre label">Entreprises &amp; Événementiel</span>
+    <h1 class="hero__title heading">Partenariats</h1>
+    <p style="font-size:14px;color:var(--text-muted);max-width:580px;margin:16px auto 0;line-height:1.7;">
+      Associez l'exigence du bien-être haut de gamme à vos événements, séminaires ou établissements en Corse.
+    </p>
+  </div>
+</section>
+
+<!-- Section Formats de partenariats -->
+<section class="section">
+  <div class="section__header">
+    <span class="label">Collaborations</span>
+    <h2 class="heading">Des formats sur mesure pour votre marque</h2>
+    <p style="font-size:13px; color:var(--text-muted); margin-top:12px; max-width:640px; margin-left:auto; margin-right:auto;">
+      Casa d'Oro conçoit des expériences bien-être immersives et élégantes, adaptées à l'identité de votre événement et aux attentes de vos invités.
+    </p>
+  </div>
+
+  <div class="partenariat-formats">
+    <div class="format-card">
+      <div class="format-card__icon">✦</div>
+      <h3 class="format-card__title">Événements de Prestige &amp; Pop-ups</h3>
+      <p class="format-card__desc">
+        Corners bien-être exclusifs lors de vos lancements de produit, soirées de gala, séminaires ou rassemblements privés en domaine et villa de prestige en Corse. Soins flash ciblés, protocoles signatures et atmosphère raffinée.
+      </p>
+    </div>
+
+    <div class="format-card">
+      <div class="format-card__icon">✦</div>
+      <h3 class="format-card__title">Bains Sonores &amp; Relaxations Collectives</h3>
+      <p class="format-card__desc">
+        Expérience sonore immersive au son des bols tibétains et de cristal, gong et carillons. Une pause de profonde détente idéale en clôture de séminaire, en ouverture de retraite ou lors d'un moment privilégié pour vos convives.
+      </p>
+    </div>
+
+    <div class="format-card">
+      <div class="format-card__icon">✦</div>
+      <h3 class="format-card__title">Hôtellerie, Domaines &amp; Conciergeries</h3>
+      <p class="format-card__desc">
+        Partenariats réguliers ou saisonniers avec les hôtels d'exception, maisons d'hôtes et conciergeries privées en Corse. Prise en charge personnalisée de votre clientèle VIP au cabinet ou directement sur leur lieu de séjour.
+      </p>
+    </div>
+
+    <div class="format-card">
+      <div class="format-card__icon">✦</div>
+      <h3 class="format-card__title">Bien-être au Travail (QVT) &amp; Team Building</h3>
+      <p class="format-card__desc">
+        Ateliers bien-être en entreprise, techniques d'auto-drainage, relaxation et gestes anti-stress pour vos collaborateurs et équipes de direction. Offrez à vos équipes un véritable moment de régénération.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Section Formulaire & Détails -->
+<section class="section section--beige" id="devenir-partenaire">
+  <div class="partenariat-grid">
+    <div>
+      <span class="label" style="display:block; margin-bottom:12px;">Contact Pro</span>
+      <h2 style="font-family:var(--font-serif); font-style:italic; font-size:32px; color:var(--dark); margin-bottom:20px; line-height:1.2;">
+        Imaginons ensemble votre prochain événement
+      </h2>
+      <p style="font-size:14px; color:var(--text-muted); line-height:1.8; margin-bottom:28px;">
+        Chaque projet de partenariat fait l'objet d'un échange privilégié pour adapter parfaitement nos interventions à vos objectifs, votre timing et vos contraintes logistiques.
+      </p>
+
+      <div class="atouts-list">
+        <div class="atout-item">
+          <span class="atout-item__bullet">✦</span>
+          <div>
+            <h4>Signature d'excellence</h4>
+            <p>Expertise certifiée (méthode brésilienne, Renata França, madérothérapie, lithothérapie et sonothérapie).</p>
+          </div>
+        </div>
+        <div class="atout-item">
+          <span class="atout-item__bullet">✦</span>
+          <div>
+            <h4>Flexibilité géographique</h4>
+            <p>Interventions possibles sur toute la Corse (Ajaccio, Porto-Vecchio, Bonifacio, Bastia...) ou privatisation de notre cabinet à Aspretto.</p>
+          </div>
+        </div>
+        <div class="atout-item">
+          <span class="atout-item__bullet">✦</span>
+          <div>
+            <h4>Prise en charge clé en main</h4>
+            <p>Matériel haut de gamme, univers sensoriel soigné, respect scrupuleux de l'image de marque de nos partenaires.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; padding:24px; background:var(--cream); border:1px solid var(--border);">
+        <p style="font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:8px;">
+          Une question directe ?
+        </p>
+        <p style="font-size:13px; color:var(--text); margin:0 0 6px;">
+          📞 <strong>Justine</strong> : <a href="tel:+33647083060" style="color:var(--dark); text-decoration:none;">+33 6 47 08 30 60</a>
+        </p>
+        <p style="font-size:13px; color:var(--text); margin:0;">
+          ✉️ <a href="mailto:cabinetcasadoro@gmail.com" style="color:var(--gold); text-decoration:none;">cabinetcasadoro@gmail.com</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Formulaire type pour les entreprises -->
+    <div class="form-partenariat-box">
+      <span class="label" style="display:block; margin-bottom:8px; color:var(--gold);">Demande de partenariat</span>
+      <h3 style="font-family:var(--font-serif); font-style:italic; font-size:24px; color:var(--dark); margin-bottom:24px;">
+        Votre projet en quelques détails
+      </h3>
+
+      <form class="form" data-w3f method="POST">
+        <input type="hidden" name="access_key" value="64b110c1-28ef-4db8-a60c-2ea199508251">
+        <input type="hidden" name="subject" value="Nouvelle demande de partenariat entreprise / événement — Casa d'Oro">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form__group">
+          <label class="form__label" for="part-entreprise">Nom de l'entreprise / Organisation *</label>
+          <input class="form__input" type="text" id="part-entreprise" name="entreprise" required placeholder="Ex: Maison Dior, Hôtel Santa Marina, Groupe ABC…">
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="form__group">
+            <label class="form__label" for="part-nom">Nom &amp; Prénom du contact *</label>
+            <input class="form__input" type="text" id="part-nom" name="nom_contact" required placeholder="Votre nom complet">
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="part-fonction">Fonction / Poste *</label>
+            <input class="form__input" type="text" id="part-fonction" name="fonction" required placeholder="Ex: Responsable Événementiel, DRH…">
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="form__group">
+            <label class="form__label" for="part-email">Email professionnel *</label>
+            <input class="form__input" type="email" id="part-email" name="email" required placeholder="contact@entreprise.com">
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="part-tel">Téléphone direct *</label>
+            <input class="form__input" type="tel" id="part-tel" name="telephone" required placeholder="06 00 00 00 00">
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="part-type">Type de partenariat souhaité *</label>
+          <select class="form__select" id="part-type" name="type_partenariat" required>
+            <option value="" disabled selected>Sélectionnez un format</option>
+            <option value="Événementiel / Soirée de prestige / Pop-up">Événementiel / Soirée de prestige / Pop-up</option>
+            <option value="Séminaire d'entreprise &amp; Bains sonores">Séminaire d'entreprise &amp; Bains sonores collectifs</option>
+            <option value="Atelier bien-être / QVT pour collaborateurs">Atelier bien-être / QVT pour collaborateurs</option>
+            <option value="Partenariat Hôtellerie / Domaine / Conciergerie">Partenariat Hôtellerie / Domaine / Conciergerie</option>
+            <option value="Cadeaux d'affaires &amp; Forfaits VIP">Cadeaux d'affaires &amp; Forfaits VIP</option>
+            <option value="Autre projet sur mesure">Autre projet sur mesure</option>
+          </select>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="form__group">
+            <label class="form__label" for="part-date">Date ou période envisagée</label>
+            <input class="form__input" type="text" id="part-date" name="periode" placeholder="Ex: Mai 2027, Fin d'année…">
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="part-lieu">Lieu pressenti</label>
+            <input class="form__input" type="text" id="part-lieu" name="lieu" placeholder="Ex: Ajaccio, Domaine viticole, Hôtel…">
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="part-participants">Nombre estimé de convives / participants</label>
+          <input class="form__input" type="text" id="part-participants" name="participants" placeholder="Ex: 10-15 personnes, 50 invités…">
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="part-message">Description de votre projet &amp; attentes *</label>
+          <textarea class="form__textarea" id="part-message" name="message" required placeholder="Détaillez le cadre de l'événement, vos envies et toute précision utile…" style="min-height:100px;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--dark" style="width:100%; padding:16px;">
+          Envoyer ma demande de partenariat →
+        </button>
+        <p style="font-size:11px; color:var(--text-muted); text-align:center; margin-top:12px;">
+          Réponse personnalisée sous 24 à 48 heures. Discrétion assurée.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Bon Cadeau -->
+<div id="bon-cadeau-modal" class="resa-modal" aria-hidden="true" onclick="if(event.target===this)fermerBonCadeau()">
+  <div class="resa-modal__box">
+    <button class="resa-modal__close" onclick="fermerBonCadeau()" aria-label="Fermer">✕</button>
+    <span class="label" style="display:block;margin-bottom:8px;">Casa d'Oro by Justine</span>
+    <h2 style="font-family:var(--font-serif);font-style:italic;font-size:26px;margin-bottom:28px;color:var(--dark);">Offrir un bon cadeau</h2>
+
+    <form id="bon-cadeau-form">
+      <div class="form__group">
+        <label class="form__label">Soin ou montant</label>
+        <select class="form__select" id="bc-soin" required>
+          <option value="" disabled selected>Choisir un soin ou un montant</option>
+          <optgroup label="Soins Corps &amp; Visage">
+            <option value="150|Drainage lymphatique Renata França">Drainage lymphatique Renata França — 150 €</option>
+            <option value="150|Remodelage Renata França">Remodelage Renata França — 150 €</option>
+            <option value="150|Madothérapie Olfa Perbal Paris">Madothérapie Olfa Perbal Paris — 150 €</option>
+            <option value="150|Body Care (1h/1h15)">Body Care drainage + remodelage + madothérapie (1h/1h15) — 150 €</option>
+            <option value="200|Body Care (1h30/1h45)">Body Care drainage + remodelage + madothérapie (1h30/1h45) — 200 €</option>
+            <option value="125|Face Care">Face Care — drainage, remodelage, lithothérapie — 125 €</option>
+          </optgroup>
+          <optgroup label="Bien-être">
+            <option value="80|Reiki Usui Tibétain">Reiki Usui Tibétain — 80 €</option>
+            <option value="80|Bain sonore individuel">Bain sonore individuel — 80 €</option>
+          </optgroup>
+          <optgroup label="Montant libre">
+            <option value="custom|Montant libre">Montant libre — saisir le montant</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form__group" id="bc-montant-libre-group" style="display:none;">
+        <label class="form__label" for="bc-montant-libre">Montant souhaité (€)</label>
+        <input class="form__input" type="number" id="bc-montant-libre" min="1" placeholder="Ex: 75">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form__group">
+          <label class="form__label" for="bc-offreur">Votre nom (qui offre)</label>
+          <input class="form__input" type="text" id="bc-offreur" required placeholder="Votre nom">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="bc-destinataire">Nom du destinataire</label>
+          <input class="form__input" type="text" id="bc-destinataire" required placeholder="À offrir à…">
+        </div>
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="bc-email">Votre email</label>
+        <input class="form__input" type="email" id="bc-email" required placeholder="votre@email.com">
+      </div>
+      <button type="submit" class="btn btn--dark" style="width:100%;margin-top:8px;">Procéder au paiement →</button>
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px;">Vous serez redirigé vers notre page de paiement sécurisé Stripe</p>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer__logo">Casa d'Oro</div>
+  <div class="footer__info">
+    Ajaccio, Corse<br>
+    @casa_doro_ajaccio<br>
+    cabinetcasadoro@gmail.com
+  </div>
+  <div class="footer__links">
+    <a href="https://www.facebook.com/profile.php?id=61555334470546" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/casa_doro_ajaccio" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://widget.treatwell.fr/salon/casa-doro/" target="_blank" rel="noopener">Treatwell</a>
+    <a href="partenariat.html">Partenariats</a>
+    <a href="contact.html">Contact</a>
+    <a href="cgv.html">CGV</a>
+  </div>
+  <div class="footer__copy">© 2026 Casa d'Oro by Justine · Ajaccio</div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/data.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>
