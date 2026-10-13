@@ -262,46 +262,84 @@
         <textarea class="form__textarea" id="resa-commentaire" name="commentaire" placeholder="Questions, informations complémentaires…" style="min-height:80px;"></textarea>
       </div>
       <button type="submit" class="btn btn--dark" style="width:100%;">Envoyer ma demande</button>
+    </form>
 
-      <div style="text-align:center;margin:24px 0 16px;position:relative;">
-        <span style="background:var(--cream);padding:0 12px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);position:relative;z-index:1;">ou</span>
-        <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border);z-index:0;"></div>
+    <div style="text-align:center;margin:24px 0 16px;position:relative;">
+      <span style="background:var(--cream);padding:0 12px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);position:relative;z-index:1;">ou</span>
+      <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border);z-index:0;"></div>
+    </div>
+
+    <button type="button" id="btn-toggle-paiement" class="btn btn--outline" onclick="toggleChoixPaiement()" style="width:100%;border-color:var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;gap:10px;">
+      <span>✦ Réserver directement votre place</span>
+      <span id="chevron-paiement" style="font-size:10px;transition:transform 0.25s ease;">▼</span>
+    </button>
+
+    <div id="choix-paiement-stripe" style="display:none;margin-top:16px;background:#fff;border:1px solid var(--border);padding:20px;border-radius:2px;">
+      <div style="text-align:center;margin-bottom:16px;">
+        <span class="label" style="display:block;margin-bottom:4px;color:var(--gold);">Réservation directe</span>
+        <p style="font-size:12px;color:var(--text-muted);margin:0;">Renseignez vos coordonnées puis choisissez votre modalité de règlement :</p>
       </div>
 
-      <button type="button" id="btn-toggle-paiement" class="btn btn--outline" onclick="toggleChoixPaiement()" style="width:100%;border-color:var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;gap:10px;">
-        <span>✦ Réserver directement ma place en ligne</span>
-        <span id="chevron-paiement" style="font-size:10px;transition:transform 0.25s ease;">▼</span>
-      </button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="form__group">
+          <label class="form__label" for="rd-nom">Nom *</label>
+          <input class="form__input" type="text" id="rd-nom" required placeholder="Votre nom">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="rd-prenom">Prénom *</label>
+          <input class="form__input" type="text" id="rd-prenom" required placeholder="Votre prénom">
+        </div>
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="rd-societe">Nom / Société (optionnel)</label>
+        <input class="form__input" type="text" id="rd-societe" placeholder="Votre société">
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="rd-email">Email *</label>
+        <input class="form__input" type="email" id="rd-email" required placeholder="votre@email.com">
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="rd-tel">Téléphone *</label>
+        <input class="form__input" type="tel" id="rd-tel" required placeholder="Votre numéro de téléphone">
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="rd-commentaire">Commentaire (optionnel)</label>
+        <textarea class="form__textarea" id="rd-commentaire" placeholder="Questions, informations complémentaires…" style="min-height:70px;"></textarea>
+      </div>
 
-      <div id="choix-paiement-stripe" style="display:none;margin-top:16px;background:#fff;border:1px solid var(--border);padding:20px;border-radius:2px;">
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border);">
         <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);font-weight:600;margin-bottom:4px;text-align:center;">
-          Règlement sécurisé Stripe
+          Sélectionnez le montant à régler
         </p>
-        <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-bottom:16px;">
-          Choisissez votre modalité de paiement pour être redirigé vers Stripe :
+        <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-bottom:14px;">
+          Vos informations nous seront envoyées par email et vous serez redirigé vers Stripe pour finaliser :
         </p>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
           <!-- Option Acompte 30% -->
-          <button type="button" onclick="allerSurStripe('acompte')" style="background:var(--cream);border:1px solid var(--border);padding:16px 10px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:all 0.2s ease;font-family:inherit;" onmouseover="this.style.borderColor='var(--gold)';this.style.background='#fff';" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--cream)';">
+          <button type="button" id="btn-pay-acompte" onclick="validerEtPayerStripe('acompte')" style="background:var(--cream);border:1px solid var(--border);padding:16px 10px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:all 0.2s ease;font-family:inherit;" onmouseover="this.style.borderColor='var(--gold)';this.style.background='#fff';" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--cream)';">
             <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);font-weight:600;">Acompte 30%</span>
             <span style="font-size:22px;font-weight:700;color:var(--dark);font-family:var(--font-serif);font-style:italic;">150 €</span>
             <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:4px;">Payer l'acompte →</span>
           </button>
 
           <!-- Option Totalité 100% -->
-          <button type="button" onclick="allerSurStripe('total')" style="background:rgba(201,169,110,0.08);border:1px solid var(--gold);padding:16px 10px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:all 0.2s ease;font-family:inherit;" onmouseover="this.style.background='rgba(201,169,110,0.18)';" onmouseout="this.style.background='rgba(201,169,110,0.08)';">
+          <button type="button" id="btn-pay-total" onclick="validerEtPayerStripe('total')" style="background:rgba(201,169,110,0.08);border:1px solid var(--gold);padding:16px 10px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:all 0.2s ease;font-family:inherit;" onmouseover="this.style.background='rgba(201,169,110,0.18)';" onmouseout="this.style.background='rgba(201,169,110,0.08)';">
             <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:600;">Totalité</span>
             <span style="font-size:22px;font-weight:700;color:var(--dark);font-family:var(--font-serif);font-style:italic;">500 €</span>
             <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--dark);font-weight:600;margin-top:4px;">Régler la totalité →</span>
           </button>
         </div>
 
+        <p id="rd-status-msg" style="display:none;font-size:11px;color:var(--gold);text-align:center;margin-top:12px;font-weight:600;">
+          ⏳ Envoi de vos informations par email et redirection vers Stripe...
+        </p>
+
         <p style="font-size:10px;color:var(--text-muted);text-align:center;margin-top:12px;letter-spacing:0.5px;">
-          🔒 Paiement 100% sécurisé via Stripe · Confirmation immédiate
+          🔒 Envoi sécurisé par email · Paiement 100% sécurisé via Stripe
         </p>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 
@@ -424,39 +462,114 @@
     const chevron = document.getElementById('chevron-paiement');
     if (!box) return;
     const isHidden = (box.style.display === 'none' || !box.style.display);
+
+    // Synchronisation automatique si le visiteur avait commencé à remplir le premier formulaire
+    if (isHidden) {
+      const syncer = (srcId, dstId) => {
+        const src = document.getElementById(srcId);
+        const dst = document.getElementById(dstId);
+        if (src && dst && !dst.value && src.value) {
+          dst.value = src.value;
+        }
+      };
+      syncer('resa-nom', 'rd-nom');
+      syncer('resa-prenom', 'rd-prenom');
+      syncer('resa-societe', 'rd-societe');
+      syncer('resa-email', 'rd-email');
+      syncer('resa-tel', 'rd-tel');
+      syncer('resa-commentaire', 'rd-commentaire');
+    }
+
     box.style.display = isHidden ? 'block' : 'none';
     if (chevron) {
       chevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
     }
+    if (isHidden) {
+      setTimeout(() => {
+        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
   }
 
-  function allerSurStripe(mode) {
+  async function validerEtPayerStripe(mode) {
+    const nom = document.getElementById('rd-nom') ? document.getElementById('rd-nom').value.trim() : '';
+    const prenom = document.getElementById('rd-prenom') ? document.getElementById('rd-prenom').value.trim() : '';
+    const societe = document.getElementById('rd-societe') ? document.getElementById('rd-societe').value.trim() : '';
+    const email = document.getElementById('rd-email') ? document.getElementById('rd-email').value.trim() : '';
+    const telephone = document.getElementById('rd-tel') ? document.getElementById('rd-tel').value.trim() : '';
+    const commentaire = document.getElementById('rd-commentaire') ? document.getElementById('rd-commentaire').value.trim() : '';
+    const formation = (document.getElementById('resa-formation') && document.getElementById('resa-formation').value)
+      || (document.getElementById('resa-modal__titre') && document.getElementById('resa-modal__titre').textContent)
+      || 'Formation Drainage Lymphatique Méthode Brésilienne';
+
+    if (!nom || !prenom || !email || !telephone) {
+      alert('Veuillez renseigner votre nom, prénom, email et numéro de téléphone pour procéder à la réservation.');
+      if (!nom && document.getElementById('rd-nom')) document.getElementById('rd-nom').focus();
+      else if (!prenom && document.getElementById('rd-prenom')) document.getElementById('rd-prenom').focus();
+      else if (!email && document.getElementById('rd-email')) document.getElementById('rd-email').focus();
+      else if (!telephone && document.getElementById('rd-tel')) document.getElementById('rd-tel').focus();
+      return;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+      alert('Veuillez saisir une adresse email valide.');
+      if (document.getElementById('rd-email')) document.getElementById('rd-email').focus();
+      return;
+    }
+
     const stripeUrl = STRIPE_FORMATION_LINKS[mode];
     if (!stripeUrl || stripeUrl.includes('LIEN_')) {
       alert('Le lien Stripe pour ce montant est en cours de configuration. Contactez le cabinet au 06 27 60 74 27.');
       return;
     }
 
-    const email = document.getElementById('resa-email') ? document.getElementById('resa-email').value.trim() : '';
-    const nom = document.getElementById('resa-nom') ? document.getElementById('resa-nom').value.trim() : '';
-    const prenom = document.getElementById('resa-prenom') ? document.getElementById('resa-prenom').value.trim() : '';
-    const formation = document.getElementById('resa-formation') ? document.getElementById('resa-formation').value : '';
+    const label = (mode === 'acompte') ? 'Acompte 30% (150 €)' : 'Paiement Totalité (500 €)';
+    const statusMsg = document.getElementById('rd-status-msg');
+    const btnAcompte = document.getElementById('btn-pay-acompte');
+    const btnTotal = document.getElementById('btn-pay-total');
 
-    const label = (mode === 'acompte') ? 'Acompte 30%' : 'Totalité';
-    let url = stripeUrl;
+    if (statusMsg) {
+      statusMsg.style.display = 'block';
+      statusMsg.textContent = '⏳ Envoi de vos informations par email et redirection vers Stripe...';
+    }
+    if (btnAcompte) btnAcompte.disabled = true;
+    if (btnTotal) btnTotal.disabled = true;
+
+    // 1. Envoi par email à Justine via Web3Forms
+    try {
+      const formData = new FormData();
+      formData.append('access_key', '64b110c1-28ef-4db8-a60c-2ea199508251');
+      formData.append('subject', `Réservation directe en ligne [${label}] — ${formation} — ${prenom} ${nom}`);
+      formData.append('formation', formation);
+      formData.append('formule_reglement', label);
+      formData.append('nom', nom);
+      formData.append('prenom', prenom);
+      formData.append('societe', societe || 'Particulier');
+      formData.append('email', email);
+      formData.append('telephone', telephone);
+      formData.append('commentaire', commentaire || 'Aucun');
+
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+    } catch (err) {
+      console.warn('Erreur envoi email Web3Forms:', err);
+    }
+
+    // 2. Redirection immédiate vers Stripe avec données pré-remplies
+    let finalUrl = stripeUrl;
     const params = [];
     if (email) params.push('prefilled_email=' + encodeURIComponent(email));
 
-    let clientRef = 'RESA | ' + label;
-    if (formation) clientRef += ' | ' + formation;
-    if (prenom || nom) clientRef += ' | ' + [prenom, nom].filter(Boolean).join(' ');
+    const clientRef = 'RESA | ' + (mode === 'acompte' ? 'Acompte 30%' : 'Total') + ' | ' + (formation ? formation.substring(0, 30) : '') + ' | ' + prenom + ' ' + nom;
     params.push('client_reference_id=' + encodeURIComponent(clientRef.substring(0, 100)));
 
     if (params.length > 0) {
-      url += (url.includes('?') ? '&' : '?') + params.join('&');
+      finalUrl += (finalUrl.includes('?') ? '&' : '?') + params.join('&');
     }
 
-    window.location.href = url;
+    window.location.href = finalUrl;
   }
 
   function ouvrirReservation(formation) {
@@ -466,6 +579,12 @@
     if (box) box.style.display = 'none';
     const chevron = document.getElementById('chevron-paiement');
     if (chevron) chevron.style.transform = 'rotate(0deg)';
+    const statusMsg = document.getElementById('rd-status-msg');
+    if (statusMsg) statusMsg.style.display = 'none';
+    const btnAcompte = document.getElementById('btn-pay-acompte');
+    if (btnAcompte) btnAcompte.disabled = false;
+    const btnTotal = document.getElementById('btn-pay-total');
+    if (btnTotal) btnTotal.disabled = false;
     const modal = document.getElementById('resa-modal');
     modal.classList.add('resa-modal--open');
     modal.setAttribute('aria-hidden', 'false');
