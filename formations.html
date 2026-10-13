@@ -262,6 +262,45 @@
         <textarea class="form__textarea" id="resa-commentaire" name="commentaire" placeholder="Questions, informations complémentaires…" style="min-height:80px;"></textarea>
       </div>
       <button type="submit" class="btn btn--dark" style="width:100%;">Envoyer ma demande</button>
+
+      <div style="text-align:center;margin:24px 0 16px;position:relative;">
+        <span style="background:var(--cream);padding:0 12px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);position:relative;z-index:1;">ou</span>
+        <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border);z-index:0;"></div>
+      </div>
+
+      <button type="button" id="btn-toggle-paiement" class="btn btn--outline" onclick="toggleChoixPaiement()" style="width:100%;border-color:var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;gap:10px;">
+        <span>✦ Réserver directement ma place en ligne</span>
+        <span id="chevron-paiement" style="font-size:10px;transition:transform 0.25s ease;">▼</span>
+      </button>
+
+      <div id="choix-paiement-stripe" style="display:none;margin-top:16px;background:#fff;border:1px solid var(--border);padding:20px;border-radius:2px;">
+        <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);font-weight:600;margin-bottom:4px;text-align:center;">
+          Règlement sécurisé Stripe
+        </p>
+        <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-bottom:16px;">
+          Choisissez votre modalité de paiement pour être redirigé vers Stripe :
+        </p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <!-- Option Acompte 30% -->
+          <button type="button" onclick="allerSurStripe('acompte')" style="background:var(--cream);border:1px solid var(--border);padding:16px 10px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:all 0.2s ease;font-family:inherit;" onmouseover="this.style.borderColor='var(--gold)';this.style.background='#fff';" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--cream)';">
+            <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);font-weight:600;">Acompte 30%</span>
+            <span style="font-size:22px;font-weight:700;color:var(--dark);font-family:var(--font-serif);font-style:italic;">150 €</span>
+            <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:4px;">Payer l'acompte →</span>
+          </button>
+
+          <!-- Option Totalité 100% -->
+          <button type="button" onclick="allerSurStripe('total')" style="background:rgba(201,169,110,0.08);border:1px solid var(--gold);padding:16px 10px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;transition:all 0.2s ease;font-family:inherit;" onmouseover="this.style.background='rgba(201,169,110,0.18)';" onmouseout="this.style.background='rgba(201,169,110,0.08)';">
+            <span style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:600;">Totalité</span>
+            <span style="font-size:22px;font-weight:700;color:var(--dark);font-family:var(--font-serif);font-style:italic;">500 €</span>
+            <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--dark);font-weight:600;margin-top:4px;">Régler la totalité →</span>
+          </button>
+        </div>
+
+        <p style="font-size:10px;color:var(--text-muted);text-align:center;margin-top:12px;letter-spacing:0.5px;">
+          🔒 Paiement 100% sécurisé via Stripe · Confirmation immédiate
+        </p>
+      </div>
     </form>
   </div>
 </div>
@@ -375,9 +414,58 @@
     });
   }
 
+  const STRIPE_FORMATION_LINKS = {
+    acompte: 'https://buy.stripe.com/3cIbJ201MbN70dAfvldEs02', // Acompte 30% (150 €)
+    total:   'https://buy.stripe.com/LIEN_FORMATION_500EUR'    // Totalité (500 €)
+  };
+
+  function toggleChoixPaiement() {
+    const box = document.getElementById('choix-paiement-stripe');
+    const chevron = document.getElementById('chevron-paiement');
+    if (!box) return;
+    const isHidden = (box.style.display === 'none' || !box.style.display);
+    box.style.display = isHidden ? 'block' : 'none';
+    if (chevron) {
+      chevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+  }
+
+  function allerSurStripe(mode) {
+    const stripeUrl = STRIPE_FORMATION_LINKS[mode];
+    if (!stripeUrl || stripeUrl.includes('LIEN_')) {
+      alert('Le lien Stripe pour ce montant est en cours de configuration. Contactez le cabinet au 06 27 60 74 27.');
+      return;
+    }
+
+    const email = document.getElementById('resa-email') ? document.getElementById('resa-email').value.trim() : '';
+    const nom = document.getElementById('resa-nom') ? document.getElementById('resa-nom').value.trim() : '';
+    const prenom = document.getElementById('resa-prenom') ? document.getElementById('resa-prenom').value.trim() : '';
+    const formation = document.getElementById('resa-formation') ? document.getElementById('resa-formation').value : '';
+
+    const label = (mode === 'acompte') ? 'Acompte 30%' : 'Totalité';
+    let url = stripeUrl;
+    const params = [];
+    if (email) params.push('prefilled_email=' + encodeURIComponent(email));
+
+    let clientRef = 'RESA | ' + label;
+    if (formation) clientRef += ' | ' + formation;
+    if (prenom || nom) clientRef += ' | ' + [prenom, nom].filter(Boolean).join(' ');
+    params.push('client_reference_id=' + encodeURIComponent(clientRef.substring(0, 100)));
+
+    if (params.length > 0) {
+      url += (url.includes('?') ? '&' : '?') + params.join('&');
+    }
+
+    window.location.href = url;
+  }
+
   function ouvrirReservation(formation) {
     document.getElementById('resa-formation').value = formation;
     document.getElementById('resa-modal__titre').textContent = formation;
+    const box = document.getElementById('choix-paiement-stripe');
+    if (box) box.style.display = 'none';
+    const chevron = document.getElementById('chevron-paiement');
+    if (chevron) chevron.style.transform = 'rotate(0deg)';
     const modal = document.getElementById('resa-modal');
     modal.classList.add('resa-modal--open');
     modal.setAttribute('aria-hidden', 'false');
