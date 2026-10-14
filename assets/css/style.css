@@ -353,6 +353,12 @@ body {
 .formation-card__obj { list-style: none; margin-bottom: 24px; }
 .formation-card__obj li { position: relative; padding-left: 18px; font-size: 13px; color: var(--text-muted); line-height: 1.8; }
 .formation-card__obj li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 10px; }
+.formation-card__deroule { list-style: none; margin-bottom: 24px; border-left: 1px solid var(--border); }
+.formation-card__deroule li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 4px 0 4px 16px; font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+.formation-card__deroule li span { color: var(--gold); white-space: nowrap; }
+@media (max-width: 480px) {
+  .formation-card__deroule li { grid-template-columns: 1fr; gap: 0; }
+}
 .formation-card__price { font-size: 28px; font-weight: 300; }
 .formation-card__price span { font-size: 14px; color: var(--gold); }
 

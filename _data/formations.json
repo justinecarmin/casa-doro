@@ -19,6 +19,36 @@
         "Être capable de pratiquer le drainage lymphatique sur un modèle (partie pratique)",
         "Être capable de développer et fidéliser sa clientèle"
       ],
+      "deroule": [
+        {
+          "horaire": "10h – 11h",
+          "etape": "Début de la formation : échange et présentation, finalisation et questions éventuelles sur les derniers points administratifs"
+        },
+        {
+          "horaire": "11h – 13h",
+          "etape": "Démonstration du protocole sur modèle"
+        },
+        {
+          "horaire": "13h – 14h",
+          "etape": "Pause déjeuner"
+        },
+        {
+          "horaire": "14h – 15h30",
+          "etape": "Le formé reçoit le soin"
+        },
+        {
+          "horaire": "15h30 – 16h",
+          "etape": "Échange"
+        },
+        {
+          "horaire": "16h – 18h",
+          "etape": "Le formé réalise le protocole de drainage lymphatique corps méthode brésilienne"
+        },
+        {
+          "horaire": "18h",
+          "etape": "Remise du certificat"
+        }
+      ],
       "duree": "Journée complète",
       "prix": 500,
       "featured": false

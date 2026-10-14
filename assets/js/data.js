@@ -74,6 +74,9 @@ function renderFormationCards(formations, selector) {
       ${f.objectifs && f.objectifs.length ? `
         <p class="formation-card__obj-title">Objectifs de la formation</p>
         <ul class="formation-card__obj">${f.objectifs.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
+      ${f.deroule && f.deroule.length ? `
+        <p class="formation-card__obj-title">Déroulé type de la journée</p>
+        <ul class="formation-card__deroule">${f.deroule.map(d => `<li><span>${esc(d.horaire)}</span>${esc(d.etape)}</li>`).join('')}</ul>` : ''}
       <div class="formation-card__price">${f.prix} <span>€ · ${esc(f.duree)}</span></div>
     </div>
   `).join('');
