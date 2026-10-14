@@ -52,6 +52,7 @@ collections:
               - { label: "Nom", name: "nom", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Note / inclus", name: "note", widget: "string", required: false }
+              - { label: "Objectifs de la formation", name: "objectifs", widget: "list", field: { label: "Objectif", name: "objectif", widget: "string" }, required: false }
               - { label: "Durée", name: "duree", widget: "string" }
               - { label: "Prix (€)", name: "prix", widget: "number" }
               - { label: "Formation complète (encadré or)", name: "featured", widget: "boolean", default: false }
@@ -62,6 +63,7 @@ collections:
               - { label: "Nom", name: "nom", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Note / inclus", name: "note", widget: "string", required: false }
+              - { label: "Objectifs de la formation", name: "objectifs", widget: "list", field: { label: "Objectif", name: "objectif", widget: "string" }, required: false }
               - { label: "Durée", name: "duree", widget: "string" }
               - { label: "Prix (€)", name: "prix", widget: "number" }
               - { label: "Formation complète (encadré or)", name: "featured", widget: "boolean", default: false }

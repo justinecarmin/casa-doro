@@ -71,6 +71,9 @@ function renderFormationCards(formations, selector) {
       <h3 class="formation-card__name">${esc(f.nom)}</h3>
       <p class="formation-card__desc">${esc(f.description)}</p>
       ${f.note ? `<p class="formation-card__note">✦ ${esc(f.note)}</p>` : ''}
+      ${f.objectifs && f.objectifs.length ? `
+        <p class="formation-card__obj-title">Objectifs de la formation</p>
+        <ul class="formation-card__obj">${f.objectifs.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
       <div class="formation-card__price">${f.prix} <span>€ · ${esc(f.duree)}</span></div>
     </div>
   `).join('');

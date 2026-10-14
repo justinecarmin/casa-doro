@@ -349,6 +349,10 @@ body {
 .formation-card__name { font-family: var(--font-serif); font-style: italic; font-size: 26px; margin-bottom: 12px; }
 .formation-card__desc { font-size: 13px; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; }
 .formation-card__note { font-size: 12px; font-weight: 400; color: var(--dark); margin-bottom: 24px; }
+.formation-card__obj-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.formation-card__obj { list-style: none; margin-bottom: 24px; }
+.formation-card__obj li { position: relative; padding-left: 18px; font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+.formation-card__obj li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 10px; }
 .formation-card__price { font-size: 28px; font-weight: 300; }
 .formation-card__price span { font-size: 14px; color: var(--gold); }
 

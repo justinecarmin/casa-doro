@@ -12,6 +12,13 @@
       "nom": "Formation Drainage Lymphatique Corps",
       "description": "Une formation complète d'une journée où tu apprends la méthodologie du drainage lymphatique sur le corps.",
       "note": "",
+      "objectifs": [
+        "Maîtriser le drainage lymphatique (partie théorique)",
+        "Reconnaître les différents types de cellulite",
+        "Réaliser un diagnostic avec un client",
+        "Être capable de pratiquer le drainage lymphatique sur un modèle (partie pratique)",
+        "Être capable de développer et fidéliser sa clientèle"
+      ],
       "duree": "Journée complète",
       "prix": 500,
       "featured": false
