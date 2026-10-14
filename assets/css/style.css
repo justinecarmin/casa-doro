@@ -349,11 +349,17 @@ body {
 .formation-card__name { font-family: var(--font-serif); font-style: italic; font-size: 26px; margin-bottom: 12px; }
 .formation-card__desc { font-size: 13px; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; }
 .formation-card__note { font-size: 12px; font-weight: 400; color: var(--dark); margin-bottom: 24px; }
-.formation-card__obj-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-.formation-card__obj { list-style: none; margin-bottom: 24px; }
+.formation-card__details { border-top: 1px solid var(--border); }
+.formation-card__details:last-of-type { border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.formation-card__obj-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+summary.formation-card__obj-title { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; cursor: pointer; list-style: none; }
+summary.formation-card__obj-title::-webkit-details-marker { display: none; }
+summary.formation-card__obj-title::after { content: '+'; font-size: 16px; letter-spacing: 0; transition: transform 0.2s; }
+.formation-card__details[open] summary.formation-card__obj-title::after { transform: rotate(45deg); }
+.formation-card__obj { list-style: none; margin-bottom: 16px; }
 .formation-card__obj li { position: relative; padding-left: 18px; font-size: 13px; color: var(--text-muted); line-height: 1.8; }
 .formation-card__obj li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 10px; }
-.formation-card__deroule { list-style: none; margin-bottom: 24px; border-left: 1px solid var(--border); }
+.formation-card__deroule { list-style: none; margin-bottom: 16px; border-left: 1px solid var(--border); }
 .formation-card__deroule li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 4px 0 4px 16px; font-size: 13px; color: var(--text-muted); line-height: 1.7; }
 .formation-card__deroule li span { color: var(--gold); white-space: nowrap; }
 @media (max-width: 480px) {

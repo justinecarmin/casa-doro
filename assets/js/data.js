@@ -72,11 +72,15 @@ function renderFormationCards(formations, selector) {
       <p class="formation-card__desc">${esc(f.description)}</p>
       ${f.note ? `<p class="formation-card__note">✦ ${esc(f.note)}</p>` : ''}
       ${f.objectifs && f.objectifs.length ? `
-        <p class="formation-card__obj-title">Objectifs de la formation</p>
-        <ul class="formation-card__obj">${f.objectifs.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
+        <details class="formation-card__details">
+          <summary class="formation-card__obj-title">Objectifs de la formation</summary>
+          <ul class="formation-card__obj">${f.objectifs.map(o => `<li>${esc(o)}</li>`).join('')}</ul>
+        </details>` : ''}
       ${f.deroule && f.deroule.length ? `
-        <p class="formation-card__obj-title">Déroulé type de la ${/demi/i.test(f.duree) ? 'demi-journée' : 'journée'}</p>
-        <ul class="formation-card__deroule">${f.deroule.map(d => `<li><span>${esc(d.horaire)}</span>${esc(d.etape)}</li>`).join('')}</ul>` : ''}
+        <details class="formation-card__details">
+          <summary class="formation-card__obj-title">Déroulé type de la ${/demi/i.test(f.duree) ? 'demi-journée' : 'journée'}</summary>
+          <ul class="formation-card__deroule">${f.deroule.map(d => `<li><span>${esc(d.horaire)}</span>${esc(d.etape)}</li>`).join('')}</ul>
+        </details>` : ''}
       <div class="formation-card__price">${f.prix} <span>€ · ${esc(f.duree)}</span></div>
     </div>
   `).join('');
