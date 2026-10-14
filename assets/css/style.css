@@ -29,12 +29,18 @@
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: var(--font-sans);
   background: var(--cream);
   color: var(--dark);
   font-size: 15px;
   line-height: 1.7;
+  position: relative;
 }
 
 /* ============================
@@ -69,6 +75,9 @@ body {
   padding: 0 48px;
   background: var(--cream);
   border-bottom: 1px solid var(--border);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .nav__logo {
   font-family: var(--font-sans);
@@ -567,7 +576,24 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav { padding: 0 20px; }
+  .nav {
+    padding: 0 28px 0 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .nav__logo {
+    font-size: 10px;
+    letter-spacing: 3px;
+    flex-shrink: 0;
+  }
+  .nav__gift {
+    margin-left: 8px;
+    padding: 6px 10px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
   .nav__links {
     display: none;
     position: fixed;
@@ -584,13 +610,24 @@ body {
   .nav__links.open { display: flex; }
   .nav__links li { width: 100%; text-align: center; }
   .nav__links a { display: block; padding: 16px; }
-  .nav__toggle { display: flex; }
+  .nav__toggle {
+    display: flex;
+    flex-shrink: 0;
+    margin-right: 14px; /* Décalé légèrement sur la gauche par rapport au bord */
+    padding: 6px;
+  }
   .nav__phone--bar {
     display: flex;
     align-items: center;
     margin-left: auto;
     margin-right: 16px;
-    font-size: 11px;
+    font-size: 10px;
+    white-space: nowrap;
+    flex-shrink: 1;
+  }
+  .pill {
+    padding: 12px 18px;
+    font-size: 8px;
   }
 
   .hero__title { font-size: 48px; }
@@ -606,6 +643,33 @@ body {
 }
 
 @media (max-width: 480px) {
+  .nav {
+    padding: 0 24px 0 12px;
+  }
+  .nav__logo {
+    letter-spacing: 2px;
+  }
+  .nav__gift {
+    font-size: 0;
+    padding: 6px 8px;
+    margin-left: 6px;
+  }
+  .nav__gift svg {
+    margin: 0;
+  }
+  .nav__phone--bar {
+    font-size: 0;
+    margin-right: 14px;
+    padding: 6px;
+  }
+  .nav__phone--bar svg {
+    margin: 0 !important;
+    width: 14px;
+    height: 14px;
+  }
+  .nav__toggle {
+    margin-right: 16px; /* Bien dégagé et décalé vers la gauche */
+  }
   .hero__title { font-size: 38px; }
   .polaro { width: 160px; }
   .polaro img,
