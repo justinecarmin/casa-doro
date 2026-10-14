@@ -29,8 +29,11 @@
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 
-html, body {
+html {
   overflow-x: hidden;
+}
+body {
+  overflow-x: clip; /* clip (et non hidden) pour garder la nav sticky */
   max-width: 100%;
 }
 
@@ -651,6 +654,8 @@ body {
   }
   .nav__gift {
     font-size: 0;
+    letter-spacing: 0;
+    gap: 0;
     padding: 6px 8px;
     margin-left: 6px;
   }
@@ -658,22 +663,27 @@ body {
     margin: 0;
   }
   .nav__phone--bar {
-    font-size: 0;
-    margin-right: 14px;
-    padding: 6px;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    margin-right: 10px;
   }
   .nav__phone--bar svg {
-    margin: 0 !important;
-    width: 14px;
-    height: 14px;
+    margin-right: 3px !important;
   }
   .nav__toggle {
-    margin-right: 16px; /* Bien dégagé et décalé vers la gauche */
+    margin-right: 8px; /* Bien dégagé et décalé vers la gauche */
   }
   .hero__title { font-size: 38px; }
   .polaro { width: 160px; }
   .polaro img,
   .polaro__placeholder { height: 160px; }
+}
+
+@media (max-width: 360px) {
+  .nav { padding: 0 16px 0 10px; }
+  .nav__logo { letter-spacing: 1px; }
+  .nav__phone--bar { font-size: 8px; letter-spacing: 0; margin-right: 6px; }
+  .nav__toggle { margin-right: 4px; }
 }
 
 /* ============================
