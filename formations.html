@@ -281,6 +281,7 @@
       <button type="submit" class="btn btn--dark" style="width:100%;">Envoyer ma demande</button>
     </form>
 
+    <div id="resa-paiement-direct">
     <div style="text-align:center;margin:24px 0 16px;position:relative;">
       <span style="background:var(--cream);padding:0 12px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);position:relative;z-index:1;">ou</span>
       <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border);z-index:0;"></div>
@@ -356,6 +357,7 @@
           🔒 Envoi sécurisé par email · Paiement 100% sécurisé via Stripe
         </p>
       </div>
+    </div>
     </div>
   </div>
 </div>
@@ -470,6 +472,9 @@
     });
   }
 
+  // Pas encore de liens Stripe aux bons montants pour ces formations : paiement en ligne masqué
+  const FORMATIONS_SANS_PAIEMENT = /Body Care|Face Care/i;
+
   const STRIPE_FORMATION_LINKS = {
     acompte: 'https://buy.stripe.com/cNi28s4i26sN0dAgzpdEs0c', // Acompte 30% (150 €)
     total:   'https://buy.stripe.com/6oU4gA9Cm8AVaSeerhdEs0d'  // Totalité (500 €)
@@ -537,7 +542,7 @@
 
     const stripeUrl = STRIPE_FORMATION_LINKS[mode];
     if (!stripeUrl || stripeUrl.includes('LIEN_')) {
-      alert('Le lien Stripe pour ce montant est en cours de configuration. Contactez le cabinet au 06 27 60 74 27.');
+      alert('Le lien Stripe pour ce montant est en cours de configuration. Contactez le cabinet au 06 47 08 30 60.');
       return;
     }
 
@@ -593,6 +598,8 @@
   function ouvrirReservation(formation) {
     document.getElementById('resa-formation').value = formation;
     document.getElementById('resa-modal__titre').textContent = formation;
+    const paiementDirect = document.getElementById('resa-paiement-direct');
+    if (paiementDirect) paiementDirect.style.display = FORMATIONS_SANS_PAIEMENT.test(formation) ? 'none' : '';
     const box = document.getElementById('choix-paiement-stripe');
     if (box) box.style.display = 'none';
     const chevron = document.getElementById('chevron-paiement');
