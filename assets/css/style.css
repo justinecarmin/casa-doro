@@ -386,6 +386,13 @@ summary.formation-card__obj-title::after { content: '+'; font-size: 16px; letter
   border: 1px solid var(--border);
   background: var(--cream);
 }
+.prochaine-card__jour {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: -8px;
+}
 .prochaine-card__date {
   font-family: var(--font-serif);
   font-style: italic;
