@@ -99,6 +99,10 @@
     <table class="soins-table" id="table-corps-visage"></table>
   </div>
   <div class="soins-section">
+    <h2 class="soins-section__title">Combos Corps &amp; Visage</h2>
+    <table class="soins-table" id="table-combos"></table>
+  </div>
+  <div class="soins-section">
     <h2 class="soins-section__title">Reiki</h2>
     <table class="soins-table" id="table-reiki"></table>
   </div>
@@ -285,6 +289,7 @@
     const data = await loadServices();
     if (!data) return;
     renderServiceTable(data.corps_visage, '#table-corps-visage');
+    renderServiceTable(data.combos,       '#table-combos');
     renderServiceTable(data.reiki,        '#table-reiki');
     renderServiceTable(data.bains_sonores,'#table-bains-sonores');
 

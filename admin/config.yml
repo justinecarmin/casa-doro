@@ -21,6 +21,16 @@ collections:
               - { label: "Durée", name: "duree", widget: "string" }
               - { label: "Prix (€)", name: "prix", widget: "number" }
               - { label: "Forfait", name: "forfait", widget: "boolean", default: false }
+          - label: "Combos Corps & Visage"
+            name: "combos"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Durée", name: "duree", widget: "string", required: false }
+              - { label: "Prix (€)", name: "prix", widget: "number" }
+              - { label: "Forfait", name: "forfait", widget: "boolean", default: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
           - label: "Reiki"
             name: "reiki"
             widget: "list"
