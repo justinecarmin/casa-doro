@@ -43,6 +43,13 @@
       "description": "Soin visage complet alliant drainage lymphatique, remodelage facial et lithothérapie (pierres de jade). Lisse les traits, redessine les contours du visage et apporte un éclat immédiat."
     },
     {
+      "nom": "Miracle Face — drainage, remodelage",
+      "duree": "30 min",
+      "prix": 75,
+      "forfait": false,
+      "description": "Soin visage de la méthode Renata França : une synergie de drainage lymphatique et de remodelage facial, en 30 minutes."
+    },
+    {
       "nom": "Forfait 5 séances corps",
       "duree": "1h / 1h15",
       "prix": 650,
