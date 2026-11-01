@@ -1013,6 +1013,15 @@ button.prochaine-card__statut {
   margin: 0;
   letter-spacing: 0.02em;
 }
+.promo-banner__list {
+  list-style: none;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+.promo-banner__list li::before { content: '— '; color: var(--gold); }
+.promo-banner__list strong { color: var(--dark); font-weight: 400; }
 .promo-banner__btn {
   white-space: nowrap;
   flex-shrink: 0;

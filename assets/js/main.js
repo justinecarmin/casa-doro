@@ -148,3 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ---- Bannière promo : masquée automatiquement après sa date de fin (data-fin="AAAA-MM-JJ", jour inclus) ----
+document.querySelectorAll('.promo-banner[data-fin]').forEach(banner => {
+  const fin = new Date(banner.dataset.fin + 'T23:59:59');
+  if (new Date() > fin) banner.remove();
+});
