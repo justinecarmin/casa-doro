@@ -1035,3 +1035,39 @@ button.prochaine-card__statut {
   .promo-banner__inner { gap: 16px; }
   .promo-banner__btn { width: 100%; text-align: center; }
 }
+
+/* ============================
+   CALENDRIER FORMATIONS
+   ============================ */
+.calendrier__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.cal-mois { background: var(--cream); border: 1px solid var(--border); padding: 24px 24px 12px; }
+.cal-mois__titre { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 24px; color: var(--gold); margin-bottom: 8px; }
+.cal-ligne {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: var(--dark);
+}
+.cal-ligne__date { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+.cal-ligne__nom { font-size: 13px; line-height: 1.5; }
+.cal-ligne__cta { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.cal-ligne:hover .cal-ligne__nom { color: var(--gold); }
+@media (max-width: 480px) {
+  .cal-ligne { grid-template-columns: 56px 1fr; }
+  .cal-ligne__cta { display: none; }
+}
