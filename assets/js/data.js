@@ -83,6 +83,7 @@ function renderFormationCards(formations, selector) {
         </details>` : ''}
       <div class="formation-card__price">${f.prix} <span>€ · ${esc(f.duree)}</span></div>
       <p class="paiement-plusieurs-fois">Règlement en plusieurs fois sans frais disponible</p>
+      ${typeof ouvrirReservation === 'function' ? `<button type="button" class="btn btn--dark formation-card__resa" data-formation="${esc(f.nom)}" onclick="ouvrirReservation(this.dataset.formation)">Je réserve ma formation</button>` : ''}
     </div>
   `).join('');
 }

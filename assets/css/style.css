@@ -367,6 +367,7 @@ summary.formation-card__obj-title::after { content: '+'; font-size: 16px; letter
 }
 .formation-card__price { font-size: 28px; font-weight: 300; }
 .formation-card__price span { font-size: 14px; color: var(--gold); }
+.formation-card__resa { margin-top: 24px; width: 100%; }
 .paiement-plusieurs-fois { font-size: 11px; letter-spacing: 1px; color: var(--text-muted); margin-top: 6px; }
 .paiement-plusieurs-fois::before { content: '✦ '; color: var(--gold); }
 
@@ -1039,7 +1040,7 @@ button.prochaine-card__statut {
 /* ============================
    CALENDRIER FORMATIONS
    ============================ */
-.calendrier { scroll-margin-top: var(--nav-h); }
+.calendrier, #formations-corps-section { scroll-margin-top: var(--nav-h); }
 .calendrier__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

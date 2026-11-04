@@ -267,7 +267,7 @@
 </section>
 
 
-<section class="section">
+<section class="section" id="formations-corps-section">
   <div class="section__header">
     <span class="label">Corps</span>
     <h2 class="heading">Formations Corps</h2>
@@ -398,6 +398,10 @@
     <button class="resa-modal__close" onclick="fermerReservation()" aria-label="Fermer">✕</button>
     <span class="label" style="display:block;margin-bottom:16px;">Réserver une place</span>
     <p id="resa-modal__titre" style="font-family:var(--font-serif);font-style:italic;font-size:18px;margin-bottom:24px;color:var(--gold);"></p>
+    <div class="form__group" id="resa-date-group" style="display:none;">
+      <label class="form__label" for="resa-date">Date souhaitée</label>
+      <select class="form__select" id="resa-date" onchange="choisirDateFormation()"></select>
+    </div>
     <form class="form" data-w3f method="POST">
       <input type="hidden" name="access_key" value="64b110c1-28ef-4db8-a60c-2ea199508251">
       <input type="hidden" name="subject" value="Demande de réservation — Casa d'Oro">
@@ -756,9 +760,45 @@
     window.location.href = finalUrl;
   }
 
+  const MOIS_FR = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+
+  // Dates à venir d'une formation, lues dans les cartes de dates et le calendrier de la page
+  function prochainesDates(nomFormation) {
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const dates = [];
+    document.querySelectorAll('[onclick*="ouvrirReservation(\'"]').forEach(el => {
+      const m = el.getAttribute('onclick').match(/ouvrirReservation\('(.+) — (\S+ (\d+) (\S+) (\d{4}))'\)/);
+      if (!m || m[1] !== nomFormation) return;
+      const d = new Date(+m[5], MOIS_FR.indexOf(m[4]), +m[3]);
+      if (d >= today && !dates.some(x => x.label === m[2])) dates.push({ label: m[2], date: d });
+    });
+    return dates.sort((a, b) => a.date - b.date).map(x => x.label);
+  }
+
+  let formationSansDate = null;
+
+  function choisirDateFormation() {
+    const date = document.getElementById('resa-date').value;
+    const formation = date ? `${formationSansDate} — ${date}` : formationSansDate;
+    document.getElementById('resa-formation').value = formation;
+    document.getElementById('resa-modal__titre').textContent = formation;
+  }
+
   function ouvrirReservation(formation) {
     document.getElementById('resa-formation').value = formation;
     document.getElementById('resa-modal__titre').textContent = formation;
+    // Ouverture depuis une carte formation (sans date) : proposer les prochaines dates
+    const dateGroup = document.getElementById('resa-date-group');
+    formationSansDate = formation.includes(' — ') ? null : formation;
+    if (dateGroup) {
+      dateGroup.style.display = formationSansDate ? '' : 'none';
+      if (formationSansDate) {
+        const opts = prochainesDates(formation).map(d => `<option value="${d}">${d}</option>`).join('');
+        document.getElementById('resa-date').innerHTML =
+          '<option value="">Choisir une date</option>' + opts +
+          '<option value="date à convenir">Autre date (à convenir)</option>';
+      }
+    }
     const paiement = paiementPour(formation);
     const paiementDirect = document.getElementById('resa-paiement-direct');
     if (paiementDirect) paiementDirect.style.display = (paiement.acompte || paiement.total) ? '' : 'none';
