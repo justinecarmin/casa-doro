@@ -82,6 +82,7 @@ function renderFormationCards(formations, selector) {
           <ul class="formation-card__deroule">${f.deroule.map(d => `<li><span>${esc(d.horaire)}</span>${esc(d.etape)}</li>`).join('')}</ul>
         </details>` : ''}
       <div class="formation-card__price">${f.prix} <span>€ · ${esc(f.duree)}</span></div>
+      <p class="paiement-plusieurs-fois">Règlement en plusieurs fois sans frais disponible</p>
     </div>
   `).join('');
 }

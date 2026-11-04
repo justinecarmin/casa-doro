@@ -367,6 +367,8 @@ summary.formation-card__obj-title::after { content: '+'; font-size: 16px; letter
 }
 .formation-card__price { font-size: 28px; font-weight: 300; }
 .formation-card__price span { font-size: 14px; color: var(--gold); }
+.paiement-plusieurs-fois { font-size: 11px; letter-spacing: 1px; color: var(--text-muted); margin-top: 6px; }
+.paiement-plusieurs-fois::before { content: '✦ '; color: var(--gold); }
 
 .prochaines-formations {
   display: grid;
